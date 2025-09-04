@@ -1,129 +1,188 @@
-/* main.css */
-
-/* These are the colors and fonts used throughout the webpage.
- * I've listed them here so that a user may easily
- * do a search-and-replace for these to change the site theme.
- *   'Roboto',sans-serif; Font for the title text
- *   'Roboto-Slab',serif; Font for the body text 
- *   #fafafa; Background color of the site
- *   #505050; Foreground (text) color of the site
- *   #52739e; Navy, "Template" in the logo, current page in navigation, special titles in the Program
- *   #b2132e; Reddish, "Conference" in the logo, hover color for links
- *   #813c54; Heading color, titles in the Program
- *   #b8860b; Dark Goldenrod, color for links
- */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab');
-
-*{
-    border:0;
-    font:inherit;
-    font-size:1em;
-    margin:0;
-    padding:0;
-    vertical-align:baseline;
+/* Base */
+:root{
+  --bg: #ffffff;
+  --text: #0f172a;          /* slate-900 */
+  --muted: #475569;         /* slate-600 */
+  --link: #0ea5e9;          /* sky-500 */
+  --link-hover: #0284c7;    /* sky-600 */
+  --ring: rgba(2,132,199,.25);
+  --container: 1100px;
 }
 
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
 body{
-    background-color: #fafafa;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #505050; 
-    text-align:left;
-    font-family:'Roboto',sans-serif;
-    font-size:1em;
-    line-height:1.5em;
-    margin: 60px auto;
-    width: 1000px;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-a{color: #b8860b; text-decoration:none;}
-a.current{color: #52739e;}
-a.current:hover{color: #e82945;}
-a:hover{color: #b2132e;}
-a:active{color: #e82945;}
-h1,h2,h3,h4{clear:left; color: #813c54; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
-h1{font-size:2.67em;}
-h2{font-size:2.00em;}
-h3{font-size:1.67em;}
-h4{font-size:1.33em;}
-p{list-style:none; margin:24px auto 24px auto; padding:0px; width:900px; text-align:left;}
-li a, p a {text-decoration:underline; text-decoration-color:#b8860b;}
-ul{list-style:none; margin:24px auto 24px auto; padding:0px; width:800px; text-align:left;}
-ul li{list-style:none; margin:0px auto 0px auto; padding:0px; text-align:left;}
-i,em{font-style:italic;}
-b,strong{font-weight:bold;}
-sup{
-    vertical-align: super;
-    font-size: 0.8em;
-    line-height: 0;
+.container{ width:100%; max-width: var(--container); margin: 0 auto; padding: 0 1.2rem; }
+a{ color: var(--link); text-decoration: none; }
+a:hover{ color: var(--link-hover); text-decoration: underline; }
+
+h1,h2,h3{
+  line-height: 1.2;
+  margin: 0 0 .5rem 0;
 }
-sub{
-    vertical-align: sub;
-    font-size: 0.8em;
-    line-height: 0;
-}
-table{
-    width: 1000px;
-    margin: 12px auto 24px auto;
-    float: center;
-    /* UNCOMMENT THIS FOR DEBUGGING THE ALIGNMENT */
-    /*border: 1px solid black;*/
-}
-th,td{
-    text-align: left;
-    /* UNCOMMENT THIS FOR DEBUGGING THE ALIGNMENT */
-    /*border: 1px solid black;*/
+h2{
+  font-weight: 800;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  margin-top: 2rem;
 }
 
-/* Website Banner */
-.banner {position: relative; font-family:'Roboto Slab',serif;}
-.top-left {font-size:5.33em; color: #505050; background: #fafafa; text-align: center; width: 1000px; height: 67px; position: absolute; padding: 36px 0 0 0; top: 0px;}
-.bottom-right {font-size:2.33em; color: #fafafa; line-height: 1.5em; width: auto; height: 100px; padding: 0px 27px 27px 0px; text-align: right; position: absolute; bottom: 0px; right: 0px; text-shadow: 0px 0px 6px #000000;}
-
-/* Conference Title Logo */
-.title1{color: #b2132e; text-shadow: 1px 1px 3px #c0c0c0;} 
-.title2{color: #52739e; text-shadow: 1px 1px 3px #c0c0c0;}
-.year{color: #505050; font-size:0.67em; font-weight: lighter;}
-
-/* Navigation Links (Home, Registration, etc) */
-table.navigation{width:800px;}
-td.navigation{font-size:1.67em; white-space:nowrap; width:20%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
-
-/* Sponsor Images */
-table.sponsors{width:800px;}
-td.sponsor{white-space:nowrap; width:33%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
-td.sponsor img{width: 100%}
-
-/* The Table on the Program Page */
-td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: #52739e; height:32px;}
-td.date{white-space:nowrap; width:130px; text-align:right; vertical-align:top; padding:4px 16px 0px 0px;}
-td.title{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.5em; color: #813c54; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0; }
-td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.67em; color: #52739e; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
-td.speaker{padding: 4px 12px 4px 4px; font-style: italic; font-size:1em; max-height:999999px}
-td.abstract{padding: 4px 12px 12px 4px; font-size:1em; max-height:999999px}
-td.abstract img{display: block; margin: 4px auto 8px auto}
-table.plenary{padding-top: 8px; background: #ffffff;}
-
-/* Registration and Directions iframes and Images */
-iframe.registration{display:block; margin:1em auto 2em auto; width:700px; height:1400px; border:none;}
-iframe.directions{display:block; margin:1em auto 2em auto; width:800px; height:400px; border:none;}
-img.center{display:block; width:67%; margin:1em auto 2em auto;}
-
-/* Flyer Images */
-table.flyers{width:800px;}
-td.flyer{white-space:nowrap; width:50%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
-td.sponsor img{width: 100%}
-
-footer{font-size:0.875em; margin-top:12em; text-align:center;}
-
-/* My hacky way of making the site mobile-friendly */
-@media only screen and (max-width: 1100px) {
-    h2{font-size:3.00em;}
-    p{font-size:1.5em; line-height:1.5em;}
-    th,td,tr{font-size:1.5em; line-height:1.5em;}
-    td.date{font-size:1em; padding-top:0.5em;}
-    td.navigation{font-size:1.5em; padding:0px 20px 0px 20px;}
-    table.footer{font-size:0.33em;}
+/* Hero (banner) — smaller/flatter with reliable height */
+.hero{
+  position: relative;
+  overflow: clip;
+  /* Flatter height: adjust here as needed */
+  min-height: clamp(160px, 22vh, 280px);
+  border-bottom: 1px solid #e5e7eb;
 }
 
+/* Use background layer so "height: 50%" hacks are not needed */
+.hero-media{
+  position: absolute; inset: 0;
+  background-image: var(--hero-image);
+  background-size: cover;           /* fill container cleanly */
+  background-position: center 40%;  /* slight upward bias if skyline */
+  filter: saturate(105%);
+  transform: translateZ(0);
+}
+
+.hero-overlay{
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.45),
+    rgba(15, 23, 42, 0.25) 40%,
+    rgba(15, 23, 42, 0.15) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.site-title{
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 1.5rem + 3vw, 3.2rem);
+  color: #fff;
+  margin: 0;
+  letter-spacing: .3px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+.site-title .eyebrow{
+  display:inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(.8rem, .7rem + .5vw, 1rem);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .95;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  background: rgba(2,132,199,.85);
+  margin-right: .4rem;
+}
+
+.site-meta{
+  color: #e2e8f0;
+  margin-top: .25rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  font-size: clamp(.95rem, .85rem + .3vw, 1.05rem);
+}
+
+.hero-inner{
+  position: relative;
+  padding: clamp(1.8rem, 2.5vh, 2.2rem) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+/* Navigation */
+.nav{
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid #eef2f7;
+}
+.nav-inner{
+  display:flex; align-items:center; gap:1rem; padding:.6rem 0;
+}
+.brand{
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: var(--text);
+}
+.nav-toggle{
+  display:none;
+  background: transparent; border:0; font-size: 1.25rem; padding:.3rem .5rem; cursor:pointer;
+}
+.nav-list{
+  display:flex; gap:1rem; margin:0 0 0 auto; padding:0; list-style:none;
+}
+.nav-list a{
+  display:inline-block; padding:.4rem .6rem; border-radius:.5rem; font-weight:600; color: var(--muted);
+}
+.nav-list a.active, .nav-list a:hover{
+  color: var(--text); background: #f1f5f9; text-decoration: none;
+}
+
+/* Mobile menu */
+@media (max-width: 760px){
+  .nav-toggle{ display:block; margin-left:auto; }
+  .nav-list{ display:none; width:100%; flex-direction:column; gap:.2rem; margin: .5rem 0 0 0; }
+  .nav-list.open{ display:flex; }
+}
+
+/* Content */
+.content{ padding: 2rem 0 3rem; }
+.content p{ color: var(--muted); }
+
+/* Sponsors */
+.sponsor-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem; margin-top: 1rem;
+}
+.sponsor-card{
+  display:block;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  overflow:hidden;
+  background: #fff;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.sponsor-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, .08);
+}
+.sponsor-card img{
+  width: 100%; height: 120px; object-fit: cover; display:block;
+}
+
+/* Footer */
+.footer{
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+.footer-inner{
+  display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; justify-content:center;
+  padding: 1rem 0; color: var(--muted);
+}
+.footer a{ color: var(--muted); }
+.footer a:hover{ color: var(--text); text-decoration: underline; }
+
+/* Focus styles */
+a, button{
+  outline: none;
+}
+a:focus-visible, button:focus-visible{
+  box-shadow: 0 0 0 3px var(--ring);
+  border-radius: .5rem;
+}
