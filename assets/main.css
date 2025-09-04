@@ -213,3 +213,53 @@ a:focus-visible, button:focus-visible{
   object-fit: cover;
   object-position: center 40%;
 }
+
+/* Banner container */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Banner image – much flatter */
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 14vh;              /* << adjust this for more/less height */
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Dark overlay to make logo + text pop */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* Content inside banner */
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* White-text logo with transparent background */
+.conference-logo {
+  width: clamp(180px, 22vw, 320px);
+  height: auto;
+  margin-bottom: 0.3rem;
+}
+
+/* White text for date/location */
+.site-meta {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  font-size: clamp(0.9rem, 0.85rem + .3vw, 1.1rem);
+}
