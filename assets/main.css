@@ -205,3 +205,11 @@ a:focus-visible, button:focus-visible{
   filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); /* makes it stand out */
 }
 
+/* Image inside hero */
+.hero-img{
+  display:block;
+  width:100%;
+  height: clamp(160px, 22vh, 280px); /* make flatter/taller by changing 22vh */
+  object-fit: cover;
+  object-position: center 40%;
+}
