@@ -225,7 +225,7 @@ a:focus-visible, button:focus-visible{
 .hero-img {
   display: block;
   width: 100%;
-  height: 14vh;              /* << adjust this for more/less height */
+  height: 18vh;              /* << adjust this for more/less height */
   object-fit: cover;
   object-position: center 40%;
 }
