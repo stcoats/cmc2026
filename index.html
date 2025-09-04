@@ -1,101 +1,102 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-    <base href=".">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
-    <meta name="description" content="Conference Template">
-    <meta name="resource-type" content="document">
-    <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Conference">
-    <title>Conference Template</title>
+  <base href=".">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <!-- Fonts: modern, readable pairing -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/main.css"/>
+  <meta name="description" content="CMC-Corpora 2026 Conference">
+  <meta name="resource-type" content="document">
+  <meta name="distribution" content="global">
+  <meta name="keywords" content="CMC-Corpora, Conference, Oulu">
+  <title>CMC-Corpora 2026 — University of Oulu</title>
 </head>
-
 <body>
 
-    <div class="banner">
-        <img src="assets/oulu_luftbild.jpg" height="50%" alt="Conference Template Banner">
-        <div class="top-left">
-            <span class="title1">CMC-Corpora 2026</span>
-        </div>
-        <div class="bottom-right">
-            August 27-28, 2026 <br> University of Oulu, Finland
-        </div>
+  <!-- Header / Hero -->
+  <header class="hero" role="banner" aria-label="Conference banner">
+    <div class="hero-media" style="--hero-image: url('assets/oulu_luftbild.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner container">
+      <h1 class="site-title">
+        <span class="eyebrow">CMC-Corpora</span>
+        2026
+      </h1>
+      <p class="site-meta">August 27–28, 2026 · University of Oulu, Finland</p>
     </div>
+  </header>
 
-    <table class="navigation">
-        <tr>
-            <td class="navigation">
-                <a class="current" title="Conference Home Page" href=".">Home</a>
-            </td>
-            <td class="navigation">
-                <a title="Register for the Conference" href="registration">Registration</a>
-            </td>
-            <td class="navigation">
-                <a title="Conference Program" href="program">Program</a> 
-            </td>
-            <td class="navigation">
-                <a title="Directions to the Conference" href="directions">Directions</a>
-            </td>
-            <td class="navigation">
-                <a title="Conference Flyer" href="flyer">Flyer</a>
-            </td>
-        </tr>
-    </table>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href=".">CMC-Corpora 2026</a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-list">
+        <li><a class="active" href=".">Home</a></li>
+        <li><a href="registration">Registration</a></li>
+        <li><a href="program">Program</a></li>
+        <li><a href="directions">Directions</a></li>
+        <li><a href="flyer">Flyer</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <h2>What is This Website?</h2>
-    <p>
-        This website is a template that you could use for a (small) academic conference. 
-        It&rsquo;s got a page for registration, where you can embed a Google Form or some other way for participants to register.
-        It&rsquo;s got a program page to list the schedule for the conference.
-        It&rsquo;s got a directions page to add a bunch of instructions how to get to the conference.
-        It&rsquo;s got a page to put up the flyers and other promotional materials for folks to download.
-    </p>
-    <p>
-        You can use this template by cloning all the files from this
-        <a target="_blank" href="https://github.com/mikepierce/conference-website-template">GitHub repo here</a>.
-        This template was created from a website I made for 
-        <a target="_blank" href="http://math.ucr.edu/~mathconn/">MathConnections 2019</a>,
-        in case you want to see an example of this template being used in the wild.
-    </p>
-    <p>
-        This paragraph is just some filler text to give the homepage some volume:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim et est et euismod. Fusce et metus tempus, pellentesque ex at, convallis nulla. Ut fringilla commodo tincidunt. Fusce sed est eu massa placerat iaculis eu at mauris. Nullam ut mollis nisi, quis malesuada risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ipsum tortor, suscipit non tincidunt vel, bibendum in libero. Nulla facilisi. Pellentesque vitae neque metus. Cras quis est pharetra, vestibulum nisl et, viverra ipsum. Etiam porta dignissim purus, quis tempor metus volutpat eu. Praesent pulvinar libero eget purus tincidunt finibus.
-    </p>
+  <main class="container content">
+    <section>
+      <h2>About</h2>
+      <p>
+        This website is a template for a small academic conference. It includes pages for registration,
+        program, directions, and a flyer for promotional use.
+      </p>
+      <p>
+        You can use this template by cloning the files from the
+        <a target="_blank" href="https://github.com/mikepierce/conference-website-template">GitHub repository</a>.
+        The template was adapted from a site built for
+        <a target="_blank" href="http://math.ucr.edu/~mathconn/">MathConnections 2019</a>.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim et est et euismod. Fusce et metus
+        tempus, pellentesque ex at, convallis nulla. Ut fringilla commodo tincidunt. Fusce sed est eu massa placerat
+        iaculis eu at mauris. Nullam ut mollis nisi, quis malesuada risus. Interdum et malesuada fames ac ante ipsum
+        primis in faucibus. Nam ipsum tortor, suscipit non tincidunt vel, bibendum in libero.
+      </p>
+    </section>
 
-    <h2>Organizers</h2>
-    <p>
-        Here&rsquo;s a good place to list the organizers and sponsors of the conference,
-        as well as list contact information for the organizers,
-        and show off the logos of the sponsors.
-        It looks like his conference was sponsored by kittens!
-    </p>
-    <table class="sponsors">
-        <tr>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten1.jpg" alt="First Sponsor Name">
-                </a>
-            </td>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten2.jpg" alt="Second Sponsor Name" style="width: 80%">
-                </a>
-            </td>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten3.jpg" alt="Third Sponsor Name">
-                </a>
-            </td>
-        </tr>
-    </table>
+    <section>
+      <h2>Organizers & Sponsors</h2>
+      <p>
+        List the organizers, sponsors, and contact information here. Showcase sponsor logos below.
+      </p>
+      <div class="sponsor-grid">
+        <a class="sponsor-card" href="http://www.eyebleach.me/">
+          <img src="assets/kitten1.jpg" alt="First Sponsor">
+        </a>
+        <a class="sponsor-card" href="http://www.eyebleach.me/">
+          <img src="assets/kitten2.jpg" alt="Second Sponsor">
+        </a>
+        <a class="sponsor-card" href="http://www.eyebleach.me/">
+          <img src="assets/kitten3.jpg" alt="Third Sponsor">
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-        &copy; Conference Organizers
-        &nbsp;|&nbsp; Design by <a href="https://github.com/mikepierce">Mike Pierce</a>
-    </footer>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© Conference Organizers</span>
+      <span aria-hidden="true">·</span>
+      <span>Design by <a href="https://github.com/mikepierce">Mike Pierce</a> · Refreshed theme</span>
+    </div>
+  </footer>
 
+  <script>
+    // Simple mobile nav toggle; no framework needed
+    const btn = document.querySelector('.nav-toggle');
+    const list = document.querySelector('.nav-list');
+    btn.addEventListener('click', () => list.classList.toggle('open'));
+  </script>
 </body>
 </html>
-
