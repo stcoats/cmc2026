@@ -186,3 +186,22 @@ a:focus-visible, button:focus-visible{
   box-shadow: 0 0 0 3px var(--ring);
   border-radius: .5rem;
 }
+
+/* Banner background */
+.hero-media {
+  position: absolute; inset: 0;
+  background-image: url('assets/oulu_luftbild.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  filter: saturate(105%);
+}
+
+/* Logo inside banner */
+.conference-logo {
+  width: clamp(180px, 25%, 300px); /* responsive size */
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); /* makes it stand out */
+}
+
