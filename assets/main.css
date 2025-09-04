@@ -11,7 +11,7 @@
   --container: 1100px;
 
   /* Banner height: tweak this (e.g., 10vh–16vh) */
-  --hero-h: clamp(120px, 13vh, 220px);
+  --hero-h: clamp(120px, 15vh, 220px);
 }
 
 *{ box-sizing: border-box; }
