@@ -143,18 +143,33 @@ h2{
 /* =========================
    Sponsors Grid
    ========================= */
+/* =========================
+   Sponsors Grid
+   ========================= */
 .sponsor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(3, 1fr);  /* always 3 per row */
   gap: 1rem;
   margin-top: 1rem;
 }
 
+@media (max-width: 760px) {
+  .sponsor-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/phones */
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr; /* 1 per row on small phones */
+  }
+}
+
 .sponsor-card {
-  display: flex;               /* center contents */
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 140px;               /* uniform card height */
+  height: 140px;               
   border: 1px solid #e5e7eb;
   border-radius: .75rem;
   background: #fff;
@@ -163,14 +178,7 @@ h2{
 
 .sponsor-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, .08);
-}
-
-.sponsor-card img {
-  max-height: 100px;   /* scale logos consistently */
-  max-width: 90%;      /* prevent overflow */
-  object-fit: contain; /* no cropping */
-}
+  box-shado
 
 
 /* =========================
