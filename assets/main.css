@@ -143,26 +143,29 @@ h2{
 /* =========================
    Sponsors Grid
    ========================= */
-.sponsor-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem; margin-top: 1rem;
-}
-.sponsor-card{
-  display:block;
+.sponsor-card {
+  display: flex;
+  align-items: center;      /* vertically center */
+  justify-content: center;  /* horizontally center */
   border: 1px solid #e5e7eb;
   border-radius: .75rem;
-  overflow:hidden;
   background: #fff;
+  height: 140px;            /* uniform height for all cards */
+  overflow: hidden;
   transition: transform .15s ease, box-shadow .15s ease;
 }
-.sponsor-card:hover{
+
+.sponsor-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(2, 132, 199, .08);
 }
-.sponsor-card img{
-  width: 100%; height: 120px; object-fit: cover; display:block;
+
+.sponsor-card img {
+  max-height: 100px;   /* keep logos within the box */
+  max-width: 90%;      /* prevent overflow horizontally */
+  object-fit: contain; /* scale without cropping */
 }
+
 
 /* =========================
    Footer
