@@ -10,8 +10,8 @@
   --ring: rgba(2,132,199,.25);
   --container: 1100px;
 
-  /* Banner height: tweak this (e.g., 10vh–16vh) */
-  --hero-h: clamp(120px, 15vh, 220px);
+  /* Banner height: taller so the logo stays visible */
+  --hero-h: clamp(220px, 24vh, 360px);
 }
 
 *{ box-sizing: border-box; }
@@ -62,24 +62,28 @@ h2{
   position: absolute; inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,.35) 0%,
-    rgba(0,0,0,.25) 60%,
-    rgba(0,0,0,.10) 100%
+    rgba(0,0,0,.45) 0%,
+    rgba(0,0,0,.30) 60%,
+    rgba(0,0,0,.12) 100%
   );
   pointer-events: none;
 }
 
+/* Pin content to a safe visible spot */
 .hero-inner {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
   display: flex;
   flex-direction: column;   /* stack logo + text */
   align-items: flex-start;  /* left align instead of center */
-  position: relative;
-  z-index: 2;               /* above the overlay */
-  padding: 20px;
+  padding: 0;
 }
 
 .conference-logo {
-  max-width: 220px;         /* adjust as needed */
+  max-width: 320px;         /* larger so it reads well */
+  height: auto;
 }
 
 .site-meta {
@@ -91,7 +95,8 @@ h2{
 
 /* Slightly taller on small screens */
 @media (max-width: 760px){
-  :root{ --hero-h: clamp(140px, 18vh, 260px); }
+  :root{ --hero-h: clamp(240px, 28vh, 420px); }
+  .conference-logo { max-width: 280px; }
 }
 
 /* =========================
