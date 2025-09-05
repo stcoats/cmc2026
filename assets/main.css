@@ -69,32 +69,25 @@ h2{
   pointer-events: none;
 }
 
-/* Overlayed content (centered over the image) */
-.hero-inner{
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  text-align: center;
-  gap: .3rem;
-  padding: .6rem;
+.hero-inner {
+  display: flex;
+  flex-direction: column;   /* stack logo + text */
+  align-items: flex-start;  /* left align instead of center */
+  position: relative;
+  z-index: 2;               /* above the overlay */
+  padding: 20px;
 }
 
-/* Transparent PNG logo (white text, colorful wave) */
-.conference-logo{
-  width: clamp(150px, 22vw, 320px);
-  height: auto;
-  margin: 0;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+.conference-logo {
+  max-width: 220px;         /* adjust as needed */
 }
 
-/* Date/location line */
-.site-meta{
-  color: #ffffff;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0,0,0,.6);
-  font-size: clamp(.9rem, .85rem + .3vw, 1.1rem);
-  margin: 0;
+.site-meta {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #fff;              /* force white text so it’s visible */
 }
+
 
 /* Slightly taller on small screens */
 @media (max-width: 760px){
