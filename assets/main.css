@@ -37,16 +37,15 @@ h2{
 }
 
 /* =========================
-   HERO (Banner) — logo overlays image
+   HERO (Banner)
    ========================= */
 .hero{
   position: relative;
-  height: var(--hero-h);     /* container height defined here */
+  height: var(--hero-h);
   overflow: hidden;
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Use the <img> as a background-like layer */
 .hero-img{
   position: absolute;
   inset: 0;
@@ -57,7 +56,6 @@ h2{
   display: block;
 }
 
-/* Dark veil so white logo/text pop */
 .hero-overlay{
   position: absolute; inset: 0;
   background: linear-gradient(
@@ -69,35 +67,40 @@ h2{
   pointer-events: none;
 }
 
-/* Pin content to a safe visible spot */
-.hero-inner {
+/* Pin logo bottom-left so it can't spill out */
+.hero-inner{
   position: absolute;
   left: 20px;
   bottom: 20px;
   z-index: 2;
   display: flex;
-  flex-direction: column;   /* stack logo + text */
-  align-items: flex-start;  /* left align instead of center */
+  flex-direction: column;
+  align-items: flex-start;
   padding: 0;
 }
 
-.conference-logo {
-  max-width: 320px;         /* larger so it reads well */
+/* Keep logo fully inside banner height */
+.conference-logo{
   height: auto;
+  width: auto;
+  max-width: 360px;                      /* adjust if needed */
+  max-height: calc(var(--hero-h) - 60px);/* prevents overflowing banner */
 }
 
-.site-meta {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #fff;              /* force white text so it’s visible */
+/* Dates don't appear in banner (already shown below) */
+.site-meta{
+  display: none;
 }
 
-
-/* Slightly taller on small screens */
+/* Slightly taller + smaller logo on small screens */
 @media (max-width: 760px){
   :root{ --hero-h: clamp(240px, 28vh, 420px); }
-  .conference-logo { max-width: 280px; }
+  .conference-logo{
+    max-width: 300px;
+    max-height: calc(var(--hero-h) - 56px);
+  }
 }
+
 
 /* =========================
    Navigation
