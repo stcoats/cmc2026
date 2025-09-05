@@ -10,7 +10,7 @@
   --ring: rgba(2,132,199,.25);
   --container: 1100px;
 
-  /* Banner height: taller so the logo stays visible */
+  /* Banner height: tall enough so logo never clips */
   --hero-h: clamp(220px, 24vh, 360px);
 }
 
@@ -67,7 +67,7 @@ h2{
   pointer-events: none;
 }
 
-/* Pin logo bottom-left so it can't spill out */
+/* Pin logo bottom-left, inside safe area */
 .hero-inner{
   position: absolute;
   left: 20px;
@@ -79,18 +79,16 @@ h2{
   padding: 0;
 }
 
-/* Keep logo fully inside banner height */
+/* Keep logo fully inside banner */
 .conference-logo{
   height: auto;
   width: auto;
-  max-width: 360px;                      /* adjust if needed */
-  max-height: calc(var(--hero-h) - 60px);/* prevents overflowing banner */
+  max-width: 360px;
+  max-height: calc(var(--hero-h) - 60px);
 }
 
-/* Dates don't appear in banner (already shown below) */
-.site-meta{
-  display: none;
-}
+/* Dates are already shown in nav; hide in banner */
+.site-meta{ display: none; }
 
 /* Slightly taller + smaller logo on small screens */
 @media (max-width: 760px){
@@ -101,7 +99,6 @@ h2{
   }
 }
 
-
 /* =========================
    Navigation
    ========================= */
@@ -111,25 +108,38 @@ h2{
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid #eef2f7;
 }
+
 .nav-inner{
   display:flex; align-items:center; gap:1rem; padding:.6rem 0;
 }
+
+.brand-wrap{
+  display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+}
+
 .brand{ font-weight:800; letter-spacing:.01em; color:var(--text); }
+.brand-sep{ color: var(--muted); }
+.brand-date{ color: var(--muted); }
+
 .nav-toggle{
   display:none; background:transparent; border:0; font-size:1.25rem;
-  padding:.3rem .5rem; cursor:pointer;
+  padding:.3rem .5rem; cursor:pointer; margin-left:auto;
 }
+
 .nav-list{
   display:flex; gap:1rem; margin:0 0 0 auto; padding:0; list-style:none;
 }
+
 .nav-list a{
   display:inline-block; padding:.4rem .6rem; border-radius:.5rem; font-weight:600; color:var(--muted);
 }
+
 .nav-list a.active, .nav-list a:hover{
   color: var(--text); background:#f1f5f9; text-decoration:none;
 }
+
 @media (max-width: 760px){
-  .nav-toggle{ display:block; margin-left:auto; }
+  .nav-toggle{ display:block; }
   .nav-list{ display:none; width:100%; flex-direction:column; gap:.2rem; margin:.5rem 0 0 0; }
   .nav-list.open{ display:flex; }
 }
@@ -143,26 +153,18 @@ h2{
 /* =========================
    Sponsors Grid
    ========================= */
-/* =========================
-   Sponsors Grid
-   ========================= */
 .sponsor-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* always 3 per row */
+  grid-template-columns: repeat(3, 1fr); /* 3 per row on desktop */
   gap: 1rem;
   margin-top: 1rem;
 }
 
 @media (max-width: 760px) {
-  .sponsor-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/phones */
-  }
+  .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 480px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr; /* 1 per row on small phones */
-  }
+  .sponsor-grid { grid-template-columns: 1fr; }
 }
 
 .sponsor-card {
@@ -178,8 +180,15 @@ h2{
 
 .sponsor-card:hover {
   transform: translateY(-2px);
-  box-shado
+  box-shadow: 0 8px 24px rgba(2, 132, 199, .08);
+}
 
+.sponsor-card img {
+  max-height: 100px;
+  max-width: 90%;
+  object-fit: contain;
+  display:block;
+}
 
 /* =========================
    Footer
