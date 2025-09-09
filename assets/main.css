@@ -36,6 +36,9 @@ h2{
   margin-top: 2rem;
 }
 
+/* Normalize lists */
+ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
+
 /* =========================
    HERO (Banner)
    ========================= */
@@ -87,7 +90,7 @@ h2{
   max-height: calc(var(--hero-h) - 60px);
 }
 
-/* Dates are already shown in nav; hide in banner */
+/* Dates are already shown elsewhere; hide in banner if present */
 .site-meta{ display: none; }
 
 /* Slightly taller + smaller logo on small screens */
@@ -102,91 +105,107 @@ h2{
 /* =========================
    Sidebar Layout
    ========================= */
-.layout {
+.layout{
   display: flex;
-  min-height: 100vh;
+  gap: 1.5rem;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1.25rem 1.2rem 2.5rem; /* breathing room below hero */
 }
 
 /* Sidebar */
-.sidebar {
-  flex: 0 0 220px;
+.sidebar{
+  flex: 0 0 230px;
+  align-self: flex-start;
+  position: sticky;
+  top: .75rem; /* sit near the top */
   background: #f8fafc;
-  border-right: 1px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 
-.sidebar-header .brand {
+.sidebar-header{
+  margin-bottom: .5rem;
+}
+
+.sidebar .brand{
+  display: block;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   color: var(--text);
   text-decoration: none;
-}
-.sidebar-header .dates {
-  color: var(--muted);
-  font-size: .9rem;
-  margin-top: .2rem;
+  margin-bottom: .15rem;
 }
 
-.sidebar-nav {
+.sidebar .dates{
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Vertical nav in sidebar */
+.sidebar-nav{
   list-style: none;
-  margin: 0;
+  margin: .75rem 0 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: .4rem;
+  gap: .25rem;
 }
-.sidebar-nav a {
+
+.sidebar-nav li{ list-style: none; }
+
+.sidebar-nav a{
   display: block;
-  padding: .5rem .75rem;
-  border-radius: .4rem;
+  padding: .5rem .6rem;
+  border-radius: .5rem;
   font-weight: 600;
   color: var(--muted);
   text-decoration: none;
 }
+
 .sidebar-nav a:hover,
-.sidebar-nav a.active {
+.sidebar-nav a.active{
   background: #e2e8f0;
   color: var(--text);
+  text-decoration: none;
 }
 
-/* Content shifts right */
-.layout .content {
-  flex: 1;
-  padding: 2rem;
+/* Main content column */
+.content{
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-/* Responsive: collapse sidebar into top bar */
-@media (max-width: 760px) {
-  .layout {
-    flex-direction: column;
-  }
-  .sidebar {
-    flex: none;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: .6rem 1rem;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  .sidebar-nav {
-    flex-direction: row;
-    gap: .6rem;
-  }
-  .sidebar-nav a {
-    padding: .4rem .6rem;
-  }
-}
-
-
-/* =========================
-   Main Content
-   ========================= */
-.content{ padding: 2rem 0 3rem; }
 .content p{ color: var(--muted); }
+
+/* Mobile: stack, sidebar becomes a simple top strip */
+@media (max-width: 900px){
+  .layout{
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.2rem 2rem;
+  }
+  .sidebar{
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    border-radius: .75rem;
+  }
+  .sidebar-header{
+    margin: 0;
+  }
+  .sidebar-nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin: 0 0 0 auto;
+  }
+  .sidebar-nav a{
+    padding: .4rem .55rem;
+  }
+}
 
 /* =========================
    Sponsors Grid
