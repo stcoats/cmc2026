@@ -86,8 +86,8 @@ ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
 .conference-logo{
   height: auto;
   width: auto;
-  max-width: 360px;
-  max-height: calc(var(--hero-h) - 60px);
+  max-width: 480px;   /* was 360px — larger logo */
+  max-height: calc(var(--hero-h) - 40px); /* fill more of banner */
 }
 
 /* Dates are already shown elsewhere; hide in banner if present */
@@ -97,8 +97,8 @@ ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
 @media (max-width: 760px){
   :root{ --hero-h: clamp(240px, 28vh, 420px); }
   .conference-logo{
-    max-width: 300px;
-    max-height: calc(var(--hero-h) - 56px);
+    max-width: 360px;  /* was 300px */
+    max-height: calc(var(--hero-h) - 36px);
   }
 }
 
@@ -118,7 +118,7 @@ ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
   flex: 0 0 230px;
   align-self: flex-start;
   position: sticky;
-  top: .75rem; /* sit near the top */
+  top: .75rem;
   background: #f8fafc;
   border: 1px solid #e5e7eb;
   border-radius: .75rem;
@@ -261,9 +261,6 @@ ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
 }
 .footer a{ color: var(--muted); }
 .footer a:hover{ color: var(--text); text-decoration: underline; }
-
-/* Safety: if a stray footer exists inside .layout, hide it */
-.layout .footer{ display: none !important; }
 
 /* =========================
    Focus Styles
