@@ -262,6 +262,9 @@ ul,ol{ margin: 0 0 1rem 1.25rem; padding: 0; }
 .footer a{ color: var(--muted); }
 .footer a:hover{ color: var(--text); text-decoration: underline; }
 
+/* Safety: if a stray footer exists inside .layout, hide it */
+.layout .footer{ display: none !important; }
+
 /* =========================
    Focus Styles
    ========================= */
