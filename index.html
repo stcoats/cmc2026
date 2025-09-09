@@ -36,21 +36,33 @@
 
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" role="navigation" aria-label="Main">
     <div class="container nav-inner">
-      <a class="brand" href=".">CMC-Corpora 2026</a><li><span class="brand">August 27th-28th, 2026, Oulu, Finland</li></span>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-      <ul class="nav-list">
-        <li><a class="active" href=".">Home</a></li>
-        <li><a class="active" href="dates">Important dates</a></li>
-        <li><a class="active" href="program">Program</a></li>
-        <li><a class="active" href="committees">Committees</a></li>
-        <li><a class="active" href="submissions">Submissions</a></li>
-        <li><a href="registration">Registration</a></li>
-        <li><a href="directions">Directions</a></li>
-      </ul>
+      <a class="brand" href=".">CMC-Corpora 2026</a>
+      <span class="dates">Aug 27–28, 2026 · Oulu, Finland</span>
+  
+      <details class="menu">
+        <summary aria-label="Open menu" role="button" aria-haspopup="menu">
+          <!-- Hamburger icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </summary>
+  
+        <ul class="nav-list" role="menu">
+          <li role="none"><a role="menuitem" class="active" href=".">Home</a></li>
+          <li role="none"><a role="menuitem" href="dates">Important dates</a></li>
+          <li role="none"><a role="menuitem" href="program">Program</a></li>
+          <li role="none"><a role="menuitem" href="committees">Committees</a></li>
+          <li role="none"><a role="menuitem" href="submissions">Submissions</a></li>
+          <li role="none"><a role="menuitem" href="registration">Registration</a></li>
+          <li role="none"><a role="menuitem" href="directions">Directions</a></li>
+        </ul>
+      </details>
     </div>
   </nav>
+
 
   <main class="container content">
     <section>
