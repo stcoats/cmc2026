@@ -100,7 +100,7 @@ h2{
 }
 
 /* =========================
-   Navigation
+   Navigation (hamburger via <details>)
    ========================= */
 .nav{
   position: sticky; top: 0; z-index: 50;
@@ -113,35 +113,62 @@ h2{
   display:flex; align-items:center; gap:1rem; padding:.6rem 0;
 }
 
-.brand-wrap{
-  display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+.brand{ font-weight:800; letter-spacing:.01em; color:var(--text); text-decoration:none; }
+.dates{ color: var(--muted); font-size:.95rem; }
+
+/* <details>/<summary> menu trigger */
+.menu{ margin-left:auto; position: relative; }
+.menu > summary{
+  list-style:none;
+  cursor:pointer;
+  border: 1px solid #e5e7eb;
+  border-radius:.6rem;
+  padding:.35rem .5rem;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff;
+  color: var(--text);
 }
+.menu > summary::-webkit-details-marker{ display:none; }
 
-.brand{ font-weight:800; letter-spacing:.01em; color:var(--text); }
-.brand-sep{ color: var(--muted); }
-.brand-date{ color: var(--muted); }
-
-.nav-toggle{
-  display:none; background:transparent; border:0; font-size:1.25rem;
-  padding:.3rem .5rem; cursor:pointer; margin-left:auto;
-}
-
+/* Dropdown panel */
 .nav-list{
-  display:flex; gap:1rem; margin:0 0 0 auto; padding:0; list-style:none;
+  display:none;
+  position:absolute; right:0; top:calc(100% + .5rem);
+  background:#fff;
+  border:1px solid #eef2f7;
+  border-radius:.8rem;
+  box-shadow: 0 8px 24px rgba(2,132,199,.08);
+  padding:.4rem;
+  min-width:230px;
+  margin:0;
+  list-style:none;
 }
+.menu[open] .nav-list{ display:block; }
 
+.nav-list li{ list-style:none; }
 .nav-list a{
-  display:inline-block; padding:.4rem .6rem; border-radius:.5rem; font-weight:600; color:var(--muted);
+  display:block;
+  padding:.6rem .8rem;
+  border-radius:.5rem;
+  font-weight:600;
+  color:var(--muted);
+  text-decoration:none;
+}
+.nav-list a:hover,
+.nav-list a.active{
+  color: var(--text);
+  background:#f1f5f9;
+  text-decoration:none;
 }
 
-.nav-list a.active, .nav-list a:hover{
-  color: var(--text); background:#f1f5f9; text-decoration:none;
-}
-
-@media (max-width: 760px){
-  .nav-toggle{ display:block; }
-  .nav-list{ display:none; width:100%; flex-direction:column; gap:.2rem; margin:.5rem 0 0 0; }
-  .nav-list.open{ display:flex; }
+/* Desktop: show horizontal menu, hide hamburger button */
+@media (min-width: 900px){
+  .menu > summary{ display:none; }
+  .nav-list{
+    position:static; display:flex !important;
+    gap:.6rem; box-shadow:none; border:0; padding:0; background:transparent; min-width:0;
+  }
+  .nav-list a{ padding:.4rem .6rem; }
 }
 
 /* =========================
@@ -155,7 +182,7 @@ h2{
    ========================= */
 .sponsor-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 per row on desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -171,11 +198,11 @@ h2{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140px;                /* fixed card height */
+  height: 140px;
   border: 1px solid #e5e7eb;
   border-radius: .75rem;
   background: #fff;
-  overflow: hidden;             /* ensure nothing spills out */
+  overflow: hidden;
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
@@ -185,12 +212,11 @@ h2{
 }
 
 .sponsor-card img {
-  max-height: 100px;   /* keep logos smaller */
-  max-width: 90%;      /* prevent stretching */
-  object-fit: contain; /* preserve aspect ratio, no cropping */
+  max-height: 100px;
+  max-width: 90%;
+  object-fit: contain;
   display: block;
 }
-
 
 /* =========================
    Footer
@@ -209,8 +235,8 @@ h2{
 /* =========================
    Focus Styles
    ========================= */
-a, button{ outline: none; }
-a:focus-visible, button:focus-visible{
+a, button, summary{ outline: none; }
+a:focus-visible, button:focus-visible, summary:focus-visible{
   box-shadow: 0 0 0 3px var(--ring);
   border-radius: .5rem;
 }
