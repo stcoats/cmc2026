@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href=".">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <!-- Fonts: modern, readable pairing -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/main.css"/>
+  <meta name="description" content="CMC-Corpora 2026 Conference">
+  <meta name="resource-type" content="document">
+  <meta name="distribution" content="global">
+  <meta name="keywords" content="CMC-Corpora, Conference, Oulu">
+  <title>CMC-Corpora 2026 — University of Oulu</title>
+</head>
+<body>
+
+  <!-- Header / Hero -->
+<!-- REMOVE <base href="."> from <head> -->
+
+<div data-include="includes/header.html"></div>
+
+<div class="layout">
+  <div data-include="includes/sidebar.html"></div>
+
+  <main class="content container">
+    <section>
+      <h2>About</h2>
+      <p>
+    The 13th International Conference on CMC and Social Media Corpora for the Humanities (CMC-Corpora) will be held in Oulu, Finland, on 27th and 28th August, 2026. 
+      </p>
+      <p>
+  More information coming soon!
+      </p>
+    </section>
+
+    <section>
+      <h2>Organizers & Sponsors</h2>
+      <div class="sponsor-grid">
+        <a class="sponsor-card" href="https://www.dariah.fi/">
+          <img src="assets/dariah_logo-2048x1229.png" alt="First Sponsor">
+        </a>
+        <a class="sponsor-card" href="http://oulu.fi/">
+          <img src="assets/cmc2026_logo.png" alt="Second Sponsor">
+        </a>
+        <a class="sponsor-card" href="https://next-generation-eu.europa.eu/index_en">
+          <img src="assets/nextgeneu_en.jpg" alt="Third Sponsor">
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+  <div data-include="includes/footer.html"></div>
+
+<script>
+document.querySelectorAll('[data-include]').forEach(el => {
+  fetch(el.getAttribute('data-include'))
+    .then(resp => resp.text())
+    .then(html => el.innerHTML = html);
+});
+</script>
+
+</body>
+</html>

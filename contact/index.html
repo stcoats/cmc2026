@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="..">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <link rel="stylesheet" href="assets/main.css"/>
+  <title>Contact — CMC-Corpora 2026</title>
+</head>
+<body>
+
+<div data-include="includes/header.html"></div>
+
+<div class="layout">
+  <div data-include="includes/sidebar.html"></div>
+
+  <main class="content container">
+    <section>
+      <h2>Contact</h2>
+      <p>For inquiries, please email: <a href="mailto:cmc2026@oulu.fi">cmc2026@oulu.fi</a></p>
+    </section>
+  </main>
+</div>
+
+<div data-include="includes/footer.html"></div>
+
+<script>
+document.querySelectorAll('[data-include]').forEach(el => {
+  fetch(el.getAttribute('data-include'))
+    .then(resp => resp.text())
+    .then(html => el.innerHTML = html);
+});
+</script>
+
+</body>
+</html>
