@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="..">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/main.css"/>
+  <title>Keynotes — CMC-Corpora 2026</title>
+  <style>
+    .keynote {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .keynote img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .keynote h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin: 0.5rem 0 0.25rem 0;
+    }
+    .keynote p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="includes/header.html"></div>
+
+<div class="layout">
+  <div data-include="includes/sidebar.html"></div>
+
+  <main class="content container">
+    <section>
+      <h2>Keynote Speakers</h2>
+
+      <div class="keynote">
+        <img src="assets/mikko.jpg" alt="Keynote Speaker 1">
+        <h3>Mikko Laitinen</h3>
+        <p>University of Eastern Finland</p>
+      </div>
+
+      <div class="keynote">
+        <img src="assets/sofia.jpg" alt="Keynote Speaker 2">
+        <h3>Second Speaker Name</h3>
+        <p>Technische Universität Berlin</p>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<div data-include="includes/footer.html"></div>
+
+<script>
+document.querySelectorAll('[data-include]').forEach(el => {
+  fetch(el.getAttribute('data-include'))
+    .then(resp => resp.text())
+    .then(html => el.innerHTML = html);
+});
+</script>
+
+</body>
+</html>
 
