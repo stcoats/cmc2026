@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="..">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <link rel="stylesheet" href="assets/main.css"/>
+  <title>Call for Papers — CMC-Corpora 2026</title>
+  <style>
+    /* Light polish specific to this page (safe even without main.css changes) */
+    .cfp p { line-height: 1.7; margin: 0.75rem 0; }
+    .cfp ul { margin: 0.25rem 0 1rem 1.25rem; }
+    .cfp li { margin: 0.25rem 0; }
+    .cfp h3 { margin-top: 1.25rem; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+<div data-include="includes/header.html"></div>
+
+<div class="layout">
+  <div data-include="includes/sidebar.html"></div>
+
+  <main class="content container cfp">
+    <section>
+      <h2>Call for Papers</h2>
+
+      <p>
+        The CMC-Corpora Conference brings together language-centered research on
+        computer-mediated communication (CMC) and social media across linguistics,
+        philologies, communication and media studies, and the social sciences.
+        We particularly welcome work grounded in corpus and computational linguistics,
+        language and text technology, and machine learning.
+      </p>
+
+      <p>
+        The conference features research that (i) applies computational methods and tools
+        to the empirical analysis of CMC/social-media phenomena and (ii) builds, processes,
+        annotates, represents, and exploits CMC/social-media corpora, including integration
+        into digital research infrastructures.
+      </p>
+
+      <p>
+        We adopt a broad definition of CMC and social media, spanning email, newsgroups,
+        forums, chat and messenger apps (e.g., WhatsApp), social networks (e.g., Facebook, Instagram),
+        gaming platforms, as well as interaction on video portals (e.g., YouTube, TikTok),
+        learning platforms, mobile apps, online games, and virtual worlds.
+      </p>
+
+      <h3>Topics of Interest</h3>
+
+      <h4>Development of CMC / Social Media Corpora</h4>
+      <ul>
+        <li>End-to-end corpus creation: from data collection to publication</li>
+        <li>Open-access data for CMC research: ethics and GDPR compliance</li>
+        <li>Annotation of CMC data: genres, linguistic layers, metadata</li>
+        <li>Multimodal corpora</li>
+        <li>Large-scale (“big data”) corpora</li>
+        <li>Legal aspects of sampling, distribution, and long-term archiving</li>
+      </ul>
+
+      <h4>Analysis of CMC / Social Media Corpora</h4>
+      <ul>
+        <li>Sociolinguistic studies of CMC</li>
+        <li>Discourse-analytic approaches to CMC</li>
+        <li>Linguistic characteristics of CMC</li>
+        <li>Multimodal (incl. visual) analysis</li>
+        <li>Multilingualism and code-switching</li>
+        <li>CMC in language education</li>
+      </ul>
+
+      <h4>Natural Language Processing for CMC / Social Media</h4>
+      <ul>
+        <li>Text normalization</li>
+        <li>Part-of-speech tagging</li>
+        <li>Anonymization and pseudonymization</li>
+        <li>Lemmatization</li>
+        <li>Syntactic parsing</li>
+        <li>Semantic annotation</li>
+        <li>LLMs for CMC analysis</li>
+      </ul>
+
+      <p>
+        We welcome submissions addressing any of the above areas or closely related topics.
+      </p>
+    </section>
+  </main>
+</div>
+
+<div data-include="includes/footer.html"></div>
+
+<script>
+document.querySelectorAll('[data-include]').forEach(el => {
+  fetch(el.getAttribute('data-include'))
+    .then(resp => resp.text())
+    .then(html => el.innerHTML = html);
+});
+</script>
+
+</body>
+</html>
 
