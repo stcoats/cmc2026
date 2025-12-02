@@ -7,7 +7,21 @@
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/main.css"/>
-  <title>Program — CMC-Corpora 2026</title>
+  <title>Submissions — CMC-Corpora 2026</title>
+  <style>
+    .cfp p { line-height: 1.7; margin: 0.75rem 0; }
+    .cfp ul, .cfp ol { margin: 0.25rem 0 1rem 1.25rem; }
+    .cfp li { margin: 0.25rem 0; }
+    .cfp h3 { margin-top: 1.25rem; font-size: 1.15rem; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+    .btn { display: inline-block; padding: .55rem .9rem; border-radius: .5rem; border: 1px solid #ddd; text-decoration: none; }
+    .btn:hover { background: #f6f6f6; }
+    .note { font-size: .95rem; color: #555; }
+    .box { border: 1px solid #e6e6e6; border-radius: .6rem; padding: .9rem 1rem; background: #fafafa; }
+    .kicker { font-weight: 600; font-size: .95rem; letter-spacing: .02em; text-transform: uppercase; color: #555; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 880px){ .grid { grid-template-columns: 1fr 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -16,10 +30,92 @@
 <div class="layout">
   <div data-include="includes/sidebar.html"></div>
 
-  <main class="content container">
+  <main class="content container cfp">
     <section>
       <h2>Submissions</h2>
-      <p>More information coming soon!</p>
+
+      <p class="note">This page provides practical instructions for submitting to CMC-Corpora 2026. For topics, scope, and review policy, see the <a href="pages/cfp.html">Call for Papers</a>.</p>
+
+      <div class="btn-row">
+        <a class="btn" href="https://www.conftool.net/cmc2026" target="_blank" rel="noopener">Open ConfTool (Submission Portal)</a>
+        <a class="btn" href="assets/cmc-2026-word-template.docx" download>Word template (.docx)</a>
+        <a class="btn" href="assets/CMC2026_Template.zip" download>LaTeX template (.zip)</a>
+        <a class="btn" href="https://www.overleaf.com/latex/templates/cmc2026-template/pthnqkkzpyss" target="_blank" rel="noopener">Open in Overleaf (template)</a>
+      </div>
+
+      <h3>Tracks & Length</h3>
+      <ul>
+        <li><strong>Short papers (oral):</strong> 3–5 pages (excluding references). Use the template; anonymized PDF for review.</li>
+        <li><strong>Abstracts (poster/demo):</strong> up to 300 words (excluding references). Anonymized PDF for review.</li>
+      </ul>
+
+      <h3>Before You Submit</h3>
+      <div class="grid">
+        <div class="box">
+          <div class="kicker">1) Create/Check Your Account</div>
+          <p>Visit ConfTool and create an account (or log in). Make sure your email address is correct for notifications.</p>
+        </div>
+        <div class="box">
+          <div class="kicker">2) Use the Official Templates</div>
+          <p>Download Word/LaTeX or use the Overleaf template. Do not alter margins, fonts, or layout parameters.</p>
+        </div>
+        <div class="box">
+          <div class="kicker">3) Anonymize for Double-Blind Review</div>
+          <ul>
+            <li>Remove author names and affiliations from the PDF.</li>
+            <li>Cite your own work in the third person (avoid “we/our previous work”).</li>
+            <li>Remove acknowledgments and identifiable links/appendices for the review version.</li>
+            <li>Check PDF metadata (no author names/emails).</li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="kicker">4) File Preparation</div>
+          <ul>
+            <li>Upload <strong>PDF</strong> generated from the template.</li>
+            <li>Ensure all fonts are embedded; figures are legible; links work.</li>
+            <li>For posters: include references if needed (not counted toward the 300-word limit).</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>How to Submit (ConfTool)</h3>
+      <ol>
+        <li>Go to <a href="https://www.conftool.net/cmc2026" target="_blank" rel="noopener">ConfTool</a> and log in.</li>
+        <li>Select the appropriate track: <em>Short Paper</em> or <em>Poster/Demo Abstract</em>.</li>
+        <li>Enter title, abstract (for indexing), and keywords. <em>Do not include author info in the anonymized PDF.</em></li>
+        <li>Upload your PDF and confirm the submission.</li>
+        <li>You may revise your submission until the deadline (see Important Dates).</li>
+      </ol>
+
+      <h3>Important Policies</h3>
+      <ul>
+        <li><strong>Double-blind review:</strong> All submissions are peer-reviewed by two or three committee members.</li>
+        <li><strong>Originality:</strong> Submissions must be original and not under review elsewhere.</li>
+        <li><strong>Ethics & data:</strong> Authors are responsible for compliance with legal/ethical requirements (e.g., GDPR, platform ToS) and should describe data handling, consent/anonymization where applicable.</li>
+        <li><strong>Proceedings:</strong> Accepted short papers and abstracts will be available online at the start of the conference. Camera-ready versions must be de-anonymized.</li>
+      </ul>
+
+      <h3>Important Dates</h3>
+      <ul>
+        <li><strong>Submission deadline:</strong> 15 April 2026, 23:59 EEST</li>
+        <li><strong>Notification of acceptance:</strong> 1 June 2026</li>
+        <li><strong>Camera-ready due:</strong> 15 July 2026, 23:59 EEST</li>
+        <li><strong>Registration deadline:</strong> 1 August 2026</li>
+      </ul>
+      <p class="note">If dates change, this page will be updated. Always check ConfTool for the most current deadlines.</p>
+
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li>Cannot log in or verify email → use ConfTool’s password reset and check spam/junk.</li>
+        <li>Upload fails → ensure PDF size is reasonable and fonts are embedded; try another browser.</li>
+        <li>System questions or access issues → contact the organizers at <a href="mailto:cmc2026@oulu.fi">cmc2026@oulu.fi</a>.</li>
+      </ul>
+
+      <div class="btn-row" style="margin-top:1rem;">
+        <a class="btn" href="https://www.conftool.net/cmc2026" target="_blank" rel="noopener">Go to ConfTool</a>
+      </div>
+
+      <p class="note">Looking for scope, topics, and review details? See the <a href="pages/cfp.html">Call for Papers</a>.</p>
     </section>
   </main>
 </div>
