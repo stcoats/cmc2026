@@ -1,31 +1,507 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <base href="..">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/main.css"/>
-  <title>Program — CMC-Corpora 2026</title>
-</head>
+<base href=".."/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="assets/favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="assets/main.css" rel="stylesheet">
+<title>Schedule — CMC-Corpora 2026</title>
+<style>
+    .schedule-page {
+      --schedule-accent: #174f5e;
+      --schedule-accent-2: #2b6b78;
+      --schedule-soft: #eaf3f5;
+      --schedule-soft-2: #f6f9fa;
+      --schedule-warm: #f6f1e7;
+      --schedule-green: #edf5eb;
+      --schedule-border: #d7e0e4;
+      --schedule-text: #24323a;
+      --schedule-muted: #66737b;
+      color: var(--schedule-text);
+    }
+
+    .schedule-page .schedule-intro {
+      margin-bottom: 2rem;
+      padding: 1.2rem 1.3rem;
+      border-left: 5px solid var(--schedule-accent);
+      border-radius: 0 10px 10px 0;
+      background: var(--schedule-soft);
+    }
+
+    .schedule-page .schedule-intro p {
+      margin: 0;
+    }
+
+    .schedule-page .day-card {
+      margin: 0 0 2.5rem;
+      overflow: hidden;
+      border: 1px solid var(--schedule-border);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(25, 55, 65, 0.08);
+    }
+
+    .schedule-page .day-heading {
+      margin: 0;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, var(--schedule-accent), var(--schedule-accent-2));
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .schedule-page .schedule-scroll {
+      overflow-x: auto;
+    }
+
+    .schedule-page table {
+      width: 100%;
+      min-width: 860px;
+      margin: 0;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-family: "Inter", sans-serif;
+    }
+
+    .schedule-page th,
+    .schedule-page td {
+      padding: 0.9rem 1rem;
+      border-right: 1px solid var(--schedule-border);
+      border-bottom: 1px solid var(--schedule-border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .schedule-page th:last-child,
+    .schedule-page td:last-child {
+      border-right: 0;
+    }
+
+    .schedule-page tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .schedule-page thead th {
+      background: #f1f5f6;
+      color: var(--schedule-accent);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .schedule-page th.time-col,
+    .schedule-page td.time {
+      width: 125px;
+    }
+
+    .schedule-page td.time {
+      white-space: nowrap;
+      color: var(--schedule-accent);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .schedule-page .session-row td {
+      background: var(--schedule-soft);
+      color: var(--schedule-accent);
+      font-weight: 800;
+    }
+
+    .schedule-page .break-row td {
+      background: var(--schedule-warm);
+      font-weight: 800;
+    }
+
+    .schedule-page .special-row td {
+      background: var(--schedule-green);
+      font-weight: 800;
+    }
+
+    .schedule-page .talk-title {
+      display: inline-block;
+      margin-top: 0.15rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .schedule-page .authors {
+      font-weight: 800;
+    }
+
+    .schedule-page .speaker-note {
+      display: inline-block;
+      margin-top: 0.2rem;
+      color: var(--schedule-muted);
+      font-size: 0.92rem;
+      font-weight: 400;
+    }
+
+    .schedule-page .empty {
+      background: var(--schedule-soft-2);
+    }
+
+    @media (max-width: 760px) {
+      .schedule-page .day-heading {
+        font-size: 1.35rem;
+      }
+
+      .schedule-page th,
+      .schedule-page td {
+        padding: 0.75rem;
+      }
+    }
+
+    @media print {
+      .schedule-page .day-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .schedule-page .schedule-scroll {
+        overflow: visible;
+      }
+
+      .schedule-page table {
+        min-width: 0;
+        font-size: 9pt;
+      }
+    }
+  </style>
+</link></head>
 <body>
-
 <div data-include="includes/header.html"></div>
-
 <div class="layout">
-  <div data-include="includes/sidebar.html"></div>
-
-  <main class="content container">
-    <section>
-      <h2>Program</h2>
-      <p>More information coming soon!</p>
-    </section>
-  </main>
+<div data-include="includes/sidebar.html"></div>
+<main class="content container schedule-page">
+<section>
+<h2>Conference Schedule</h2>
+<div class="schedule-intro">
+<p><strong>Provisional program.</strong> Times and session details may still be adjusted.</p>
 </div>
-
+</section>
+<section aria-labelledby="thursday-heading" class="day-card">
+<h2 class="day-heading" id="thursday-heading">Thursday, 27 August 2026</h2>
+<div class="schedule-scroll">
+<table>
+<thead>
+<tr>
+<th class="time-col">Time</th>
+<th>L2</th>
+<th>Tellus Stage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="special-row">
+<td class="time">08:30–09:00</td>
+<td colspan="2">Registration</td>
+</tr>
+<tr class="special-row">
+<td class="time">09:00–09:15</td>
+<td>Opening and practical information</td>
+<td class="empty"></td>
+</tr>
+<tr class="special-row">
+<td class="time">09:15–10:15</td>
+<td>
+<span class="authors">Keynote: Mikko Laitinen</span><br/>
+<span class="speaker-note">Chair: Steven Coats</span><br/>
+<span class="talk-title">Ego networks and computer-mediated communication</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr class="break-row">
+<td class="time">10:15–10:45</td>
+<td colspan="2">Coffee break</td>
+</tr>
+<tr class="session-row">
+<td class="time">10:45–12:45</td>
+<td>Session 1A: Corpus construction and computational analysis<br/><span class="speaker-note">Chair: Reinhild Vandekerckhove</span></td>
+<td>Session 1B: Interaction, identity and emoji use<br/><span class="speaker-note">Chair: Lieke Verheijen</span></td>
+</tr>
+<tr>
+<td class="time">10:45–11:15</td>
+<td>
+<span class="authors">Torben Juel Jensen &amp; Philip Diderichsen</span><br/>
+<span class="talk-title">Establishing the Corpus of Danish Digitally Mediated Interaction (DanDIGI)</span>
+</td>
+<td>
+<span class="authors">Lara Baert et al.</span><br/>
+<span class="talk-title">Rethinking Emoji Functions in Later Life: How Older Adults Interpret Emoji in Context</span>
+</td>
+</tr>
+<tr>
+<td class="time">11:15–11:45</td>
+<td>
+<span class="authors">Andreas Witt &amp; Marc Kupietz</span><br/>
+<span class="talk-title">Quantitative Approaches to German CMC Corpora</span>
+</td>
+<td>
+<span class="authors">Martti Mäkinen</span><br/>
+<span class="talk-title">Emojis in Swedish-speakers’ WhatsApp discussions: hearts vs. grins</span>
+</td>
+</tr>
+<tr>
+<td class="time">11:45–12:15</td>
+<td>
+<span class="authors">Léonieke Ariaans, Iris Hendrickx &amp; Ilja Croijmans</span><br/>
+<span class="talk-title">The lexical metaphor in wine speak: Semi-automated, manual annotation in expert and non-expert wine reviews</span>
+</td>
+<td>
+<span class="authors">Rahel Albicker</span><br/>
+<span class="talk-title">Personal Pronoun Declarations in CMC Networks: Tracing a Sociolinguistic Innovation in the Context of the Weak-tie Hypothesis</span>
+</td>
+</tr>
+<tr>
+<td class="time">12:15–12:45</td>
+<td>
+<span class="authors">Dimitra Niaouri, Meriem Hamdane, Michele Linardi &amp; Julien Longhi</span><br/>
+<span class="talk-title">Graph Classification Explainability meets Extremist Narrative Analysis.</span>
+</td>
+<td>
+<span class="authors">Lydia-Mai Ho-Dac, Céline Poudat, Ludovic Tanguy, Cécile Fabre &amp; Josette Rebeyrolle</span><br/>
+<span class="talk-title">Leave and let die: announcing a departure from an online discussion</span>
+</td>
+</tr>
+<tr class="break-row">
+<td class="time">12:45–13:45</td>
+<td colspan="2">Lunch</td>
+</tr>
+<tr class="session-row">
+<td class="time">13:45–15:15</td>
+<td>Session 2: Computational and annotation methods<br/><span class="speaker-note">Chair: Laura Herzberg</span></td>
+<td class="empty"></td>
+</tr>
+<tr>
+<td class="time">13:45–14:15</td>
+<td>
+<span class="authors">Maria Berger, Yulia Clausen &amp; Hannah Seemann</span><br/>
+<span class="talk-title">Computational Modeling of Register Variation in Positive Online Language</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr>
+<td class="time">14:15–14:45</td>
+<td>
+<span class="authors">Steven Coats</span><br/>
+<span class="talk-title">Decoding Parameters as Methodological Choices: The Impact of Temperature on ASR-Derived Corpus Construction</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr>
+<td class="time">14:45–15:15</td>
+<td>
+<span class="authors">Egon W. Stemle</span><br/>
+<span class="talk-title">Sentence-Level Universal Dependencies (UD) Genres for CMC: A Social-Genre POS-Tagging Showcase</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr class="break-row">
+<td class="time">15:15–15:45</td>
+<td colspan="2">Coffee break</td>
+</tr>
+<tr class="special-row">
+<td class="time">15:45–16:15</td>
+<td>Poster slam</td>
+<td class="empty"></td>
+</tr>
+<tr class="special-row">
+<td class="time">16:15–17:00</td>
+<td>Poster session</td>
+<td class="empty"></td>
+</tr>
+<tr class="special-row">
+<td class="time">19:00</td>
+<td colspan="2">Conference dinner</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="friday-heading" class="day-card">
+<h2 class="day-heading" id="friday-heading">Friday, 28 August 2026</h2>
+<div class="schedule-scroll">
+<table>
+<thead>
+<tr>
+<th class="time-col">Time</th>
+<th>L2</th>
+<th>Tellus Stage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="special-row">
+<td class="time">09:00–10:00</td>
+<td>
+<span class="authors">Keynote: Sofia Rüdiger</span><br/>
+<span class="speaker-note">Chair: Hanne Juntunen</span><br/>
+<span class="talk-title"></span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr class="break-row">
+<td class="time">10:00–10:30</td>
+<td colspan="2">Coffee break</td>
+</tr>
+<tr class="session-row">
+<td class="time">10:30–12:00</td>
+<td>Session 3A: Register, language variation and ideology<br/><span class="speaker-note">Chair: Maarit Siiromaa</span></td>
+<td>Session 3B: Platforms, identity and online discourse<br/><span class="speaker-note">Chair: Jarkko Toikkanen</span></td>
+</tr>
+<tr>
+<td class="time">10:30–11:00</td>
+<td>
+<span class="authors">Hannah Seemann &amp; Tatjana Scheffler</span><br/>
+<span class="talk-title">Medium, Register, and the Individual as Sources of Linguistic Variation</span>
+</td>
+<td>
+<span class="authors">Nobutane Hanayama &amp; Motohiro Fukuoka</span><br/>
+<span class="talk-title">An age-cohort approach for analyzing X (formerly Twitter) data</span>
+</td>
+</tr>
+<tr>
+<td class="time">11:00–11:30</td>
+<td>
+<span class="authors">Frederike Schram</span><br/>
+<span class="talk-title">Regional and Minority Languages in CMC: Exploring Low German on Instagram</span>
+</td>
+<td>
+<span class="authors">Ming Ze Tang, Phan Quynh Thu Nguyen &amp; Thi Hong Nhung Nguyen</span><br/>
+<span class="talk-title">The Flattening Effect: A Comparative Study of Sociopragmatic Erasure and Identity Loss in Translated Vietnamese-English Cyber-discourse</span>
+</td>
+</tr>
+<tr>
+<td class="time">11:30–12:00</td>
+<td>
+<span class="authors">Lea Meriläinen &amp; Heli Paulasto</span><br/>
+<span class="talk-title">Corpus-assisted Discourse Analysis on “Good English”: Attitudes and Ideologies on the Suomi24 Discussion Forum</span>
+</td>
+<td>
+<span class="authors">Evelina Salo</span><br/>
+<span class="talk-title">The Self-Censorship Strategies of Crime Junkies Online: An Analysis of Algospeak Used by True Crime Content Creators on TikTok</span>
+</td>
+</tr>
+<tr class="break-row">
+<td class="time">12:00–13:15</td>
+<td colspan="2">Lunch</td>
+</tr>
+<tr class="session-row">
+<td class="time">13:15–14:15</td>
+<td>Session 4: LLM-assisted analysis of online interaction<br/><span class="speaker-note">Chair: Steven Coats</span></td>
+<td class="empty"></td>
+</tr>
+<tr>
+<td class="time">13:15–13:45</td>
+<td>
+<span class="authors">Susan Herring &amp; Soyeon Lee</span><br/>
+<span class="talk-title">Beyond Agreement: Using LLM Reasoning to Evaluate Speech Acts and Politeness in Social Media</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr>
+<td class="time">13:45–14:15</td>
+<td>
+<span class="authors">Harald Lüngen &amp; Laura Herzberg</span><br/>
+<span class="talk-title">An approach to LLM-based annotation of reply relations</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr class="break-row">
+<td class="time">14:15–14:30</td>
+<td colspan="2">Short break</td>
+</tr>
+<tr class="special-row">
+<td class="time">14:30–15:30</td>
+<td>
+                CMC Knowledge Centre workshop: Metadata practices for CMC corpora<br/>
+<span class="speaker-note">Led by Egon W. Stemle and Alexander König</span>
+</td>
+<td class="empty"></td>
+</tr>
+<tr class="special-row">
+<td class="time">15:30–15:45</td>
+<td>Closing remarks and announcement of the next conference</td>
+<td class="empty"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="poster-heading" class="day-card">
+<h2 class="day-heading" id="poster-heading">Poster Programme</h2>
+<div style="padding: 1.25rem 1.4rem;">
+<p>The poster slam and poster session will take place on Thursday afternoon.</p>
+<ol style="margin: 1rem 0 0; padding-left: 1.4rem;">
+<li style="margin-bottom: 1rem;">
+<span class="authors">Marc Kupietz, Nils Diewald &amp; Laura Herzberg</span><br/>
+<span class="talk-title">The Enhanced German Wikipedia Talk Pages Corpus: New Annotations for Emojis and Gender Sensitive Language</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Louis Cotgrove</span><br/>
+<span class="talk-title">Participatory CMC Corpus Building: A Museum-Based Approach to Data Donation and Public Engagement</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Lieke Verheijen, Ilja Croijmans &amp; Samantha Revels</span><br/>
+<span class="talk-title">Cross-Cultural Computer-Mediated Culinary Communication: Affordances and Constraints of the Current Food Emoji</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Tim Feldmüller &amp; Theresa Schweden</span><br/>
+<span class="talk-title">Komplett behindert?!?!? Token-based embeddings for analysing polysemy of the word <em>behindert</em> (‘disabled’) in German CMC corpora</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Marc Kupietz, Nils Diewald &amp; Harald Lüngen</span><br/>
+<span class="talk-title">cmc-tagger: A Tagger for Computer-Mediated Communication Corpora</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Minna Pukari &amp; Tiina Räisänen</span><br/>
+<span class="talk-title">Reddit Discourses on Generative AI Usage in Work</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Harald Lüngen, Laura Herzberg, Michael Beißwenger &amp; Andreas Witt</span><br/>
+<span class="talk-title">TEI SIG CMC: Infrastructure and Resources for the Encoding of CMC Corpora</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Hanna Limatius, Matt Gee &amp; Robert Lawson</span><br/>
+<span class="talk-title">Representation of Minoritized Groups in Social Media Responses to UK Government Communication during COVID-19</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Erik Henriksson, Tuomas Lundberg &amp; Veronika Laippala</span><br/>
+<span class="talk-title">Fine-tuning embeddings for register classification reveals functional subtypes within social media registers</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Laura Aubry</span><br/>
+<span class="talk-title">Design and annotation of a multilayer CMC corpus for the analysis of Spanish conditional constructions</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Maarit Siromaa &amp; Mirka Rauniomaa</span><br/>
+<span class="talk-title">Setting experiences against expectations in personal narratives on talking about weight in healthcare encounters</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Céline Poudat, Christophe Parisse, Mathilde Guernut &amp; Achille Falaise</span><br/>
+<span class="talk-title">Integrating CMC into a transversal metadata scheme: the Open French Corpus case</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Alexander König, Egon W. Stemle, Lionel Nicolas, Céline Poudat &amp; Steven Coats</span><br/>
+<span class="talk-title">A curation strategy for the CLARIN Resource Family for Computer-Mediated Communication</span>
+</li>
+<li style="margin-bottom: 1rem;">
+<span class="authors">Penelope Nguyen</span><br/>
+<span class="talk-title">“Yet another dumbass 🙂”: Understanding 🙂 within the Vietnamese online community</span>
+</li>
+<li>
+<span class="authors">Daria Dayter</span><br/>
+<span class="talk-title">Performing moral authority: How ‘should be ashamed’ circulates across contrasting affordances of X and Bluesky</span>
+</li>
+</ol>
+</div>
+</section>
+</main>
+</div>
 <div data-include="includes/footer.html"></div>
-
 <script>
 document.querySelectorAll('[data-include]').forEach(el => {
   fetch(el.getAttribute('data-include'))
@@ -33,6 +509,5 @@ document.querySelectorAll('[data-include]').forEach(el => {
     .then(html => el.innerHTML = html);
 });
 </script>
-
 </body>
 </html>
