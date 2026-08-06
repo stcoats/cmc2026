@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OULU Pac-Man</title>
+  <style>
+    body { margin: 0; background: transparent; overflow: hidden; }
+    #oulu-pacman { width: min(100%, 554px); height: 186px; margin: 0 auto; }
+    #logo { width: 554px; height: 186px; background: #000; position: relative; overflow: hidden; transform-origin: top left; }
+    #maze-walls { position: absolute; inset: 0; z-index: 0; }
+    #logo > #pcm-c { z-index: 1; background: transparent !important; }
+    #pcm-do { left: 168px !important; top: 56px !important; }
+  </style>
+  <script>
+    window.google = { time: function () { return Date.now(); }, Toolbelt: {}, y: {}, dstr: [], rein: [] };
+  </script>
+</head>
+<body>
+  <div id="oulu-pacman">
+    <div id="logo" title="OULU Pac-Man maze. Click the maze, then use the arrow keys to play.">
+      <canvas id="maze-walls" width="554" height="186"></canvas>
+      <div id="logo-l" style="display:none"><div id="logo-b"></div></div>
+    </div>
+  </div>
+  <script src="google-script.js"></script>
+  <script src="oulu-map.js"></script>
+  <script>
+    OULU_MAP.draw(document.getElementById('maze-walls'));
+    (function () {
+      var wrapper = document.getElementById('oulu-pacman');
+      var logo = document.getElementById('logo');
+      function resizeGame() {
+        var scale = wrapper.clientWidth / 554;
+        logo.style.transform = 'scale(' + scale + ')';
+        wrapper.style.height = (186 * scale) + 'px';
+      }
+      window.addEventListener('resize', resizeGame);
+      requestAnimationFrame(resizeGame);
+    })();
+    google.neegg = 1;
+    google.pml = function () {
+      if (google.pml_installed) return;
+      google.pml_installed = true;
+      var audio = document.createElement('script');
+      audio.src = 'pacman-audio-samples.js';
+      audio.onload = function () {
+        var game = document.createElement('script');
+        game.src = 'pacman-oulu.js';
+        document.head.appendChild(game);
+      };
+      document.head.appendChild(audio);
+    };
+    google.pml();
+  </script>
+</body>
+</html>
