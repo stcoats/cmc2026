@@ -23,6 +23,19 @@
       color: var(--schedule-text);
     }
 
+    /* The site-wide .container rule is too narrow for the two-track schedule
+       on large displays. Let this page use the available content width. */
+    main.content.container.schedule-page {
+      width: min(100%, 1500px);
+      max-width: none;
+      box-sizing: border-box;
+    }
+
+    .schedule-page .day-card,
+    .schedule-page .schedule-scroll {
+      max-width: 100%;
+    }
+
     .schedule-page .schedule-intro {
       margin-bottom: 2rem;
       padding: 1.2rem 1.3rem;
@@ -306,7 +319,7 @@
 </tr>
 <tr class="special-row">
 <td class="time">15:45–16:15</td>
-<td>Poster slam</td>
+<td>Poster slam<br/><span class="speaker-note">Chair: Jarkko Toikkanen</span></td>
 <td class="empty"></td>
 </tr>
 <tr class="special-row">
