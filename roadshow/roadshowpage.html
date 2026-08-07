@@ -41,6 +41,9 @@
       background: #000;
       display: grid;
       place-items: center;
+      width: 100%;
+      max-width: none;
+      margin: 0;
     }
 
     .content.container {
@@ -48,12 +51,16 @@
       width: min(1180px, calc(100vw - 48px));
       min-height: 760px;
       margin: 0 auto;
-      padding: 0;
-      overflow: hidden;
+      padding: 0 0 48px;
+      overflow: visible;
       background: #000;
+      max-width: 1180px;
       border: 8px solid var(--blue);
       border-radius: 16px;
-      box-shadow: 0 0 0 8px #000, 0 0 0 14px var(--blue2), 0 0 40px rgba(17,52,255,.55);
+      box-shadow:
+        0 0 0 8px #000,
+        0 0 0 14px var(--blue2),
+        0 0 40px rgba(17,52,255,.55);
     }
 
     .scorebar {
@@ -106,8 +113,12 @@
       position: relative;
       z-index: 4;
       width: min(720px, 72%);
-      margin: 74px auto 0;
+      height: auto;
+      min-height: 0;
+      margin: 28px auto 0;
       padding: 28px 28px 22px;
+      overflow: visible;
+      border-bottom: 0;
       text-align: center;
       background: radial-gradient(ellipse at center, rgba(0,0,0,.96) 20%, rgba(0,0,0,.86) 74%, rgba(0,0,0,.25) 100%);
     }
@@ -122,7 +133,7 @@
       text-transform: uppercase;
       text-shadow: 0 0 8px rgba(255,246,0,.65), 0 0 24px rgba(255,246,0,.32);
     }
-    .subtitle {
+    .content .subtitle {
       margin: 20px auto 0;
       color: var(--white);
       font-size: clamp(.78rem, 1.5vw, 1.15rem);
@@ -130,7 +141,7 @@
       text-align: center;
       text-transform: uppercase;
     }
-    .subtitle strong { color: #2ebeff; font-weight: normal; }
+    .content .subtitle strong { color: #2ebeff; font-weight: normal; }
 
     .pacman-interlude {
       position: relative;
@@ -252,7 +263,7 @@
       .content.container { width: calc(100vw - 20px); min-height: auto; border-width: 5px; }
       .scorebar { grid-template-columns: 1fr; text-align: center; padding: 16px 18px 0; }
       .scorebar .right { text-align: center; }
-      .hero { width: 94%; margin-top: 36px; padding: 18px 10px; }
+      .hero { width: 94%; margin-top: 22px; padding: 18px 10px; }
       .pacman-interlude { width: 94%; margin: 22px auto 12px; border-width: 3px; }
       .schedule { width: 94%; margin-top: 20px; padding: 10px 12px; }
       .schedule > li { grid-template-columns: 1fr; gap: 4px; }
@@ -269,8 +280,6 @@
 
   <main class="content container">
     <svg class="maze-svg" viewBox="0 0 1180 760" preserveAspectRatio="none" aria-hidden="true">
-      <path class="maze-outer" d="M32 32 H1148 V728 H32 Z"/>
-      <path class="maze-inner" d="M32 32 H1148 V728 H32 Z"/>
     </svg>
 
     <div class="scorebar" aria-hidden="true">
@@ -280,7 +289,7 @@
     </div>
 
     <section class="pacman-interlude" aria-label="Interactive OULU Pac-Man maze">
-      <iframe src="google_pacman/oulu-engine.html" title="Interactive OULU Pac-Man maze" loading="eager"></iframe>
+      <iframe src="roadshow/pacman/" title="Interactive OULU Pac-Man maze" loading="eager"></iframe>
     </section>
 
     <section class="hero">
@@ -288,24 +297,27 @@
       <p class="subtitle"><strong>University of Oulu</strong><br>Wednesday, 26 August 2026<br>Tellus Stage</p>
     </section>
 
-    <ul class="schedule">
-      <li><span class="time">12:00</span><span class="event">&nbsp;&nbsp;Greetings and welcome</span></li>
-      <li><span class="time">12:10–12:40</span><span class="event">&nbsp;&nbsp;Marika Rauhala, U. Oulu, Metadata records for researcher profiles</span></li>
-      <li><span class="time">12:40–13:10</span><span class="event">&nbsp;&nbsp;Alexander König, CLARIN-ERIC, Metadata schemes at CLARIN-ERIC</span></li>
-      <li><span class="time">13:10–13:40</span><span class="event">&nbsp;&nbsp;Veronika Laippala/Erik Eriksson, UTU, TurkuNLP tools</span></li>
-      <li><span class="time">13:40–14:00</span><span class="event">&nbsp;&nbsp;Coffee break</span></li>
-      <li>
-        <span class="time">14:00–15:00</span>
-        <span class="event">&nbsp;&nbsp;Roundtable discussion: Metadata desiderata
+      <ul class="schedule">
+        <li><span class="time">12:00</span> Greetings and welcome</li>
+        <li><span class="time">12:10–12:40</span> Päivi Leinonen and Alina Niskanen, U. Oulu, Metadata records for researcher profiles</li>
+        <li><span class="time">12:40–13:10</span> Alexander König, CLARIN-ERIC, Metadata schemes at CLARIN-ERIC</li>
+        <li><span class="time">13:10–13:40</span> Veronika Laippala / Erik Henriksson, UTU, Metadata and TurkuNLP tools</li>
+        <li><span class="time">13:40–14:00</span> Coffee break</li>
+        <li>
+          <span class="time">14:00–15:00</span> Roundtable discussion: Metadata desiderata
           <ul>
-            <li>Egon Stemle, EURAC</li>
-            <li>Alexander König, CLARIN-ERIC</li>
-            <li>Mikko Laitinen / Mehrdad Salimi / Masoud Fatemi, UEF</li>
-            <li>tba</li>
-            <li>Veronika Laippala, UTU</li>
+            <li>Egon Stemle, EURAC Resesarch, Italy</li>
+            <li>Alexander König, CLARIN-ERIC, Netherlands</li>
+            <li>Mikko Laitinen / Mehrdad Salimi / Masoud Fatemi, University of Eastern Finland</li>
+            <li>Veronika Laippala, University of Turku, Finland</li>
+            <li>Andreas Witt, Leibniz-Institut für Deutsche Sprache/CLARIN-D, Germany</li>
           </ul>
-      <li><span class="time">18:00–19:30</span>&nbsp;&nbsp;Reception at Oulu City Hall with welcome words, food, drink, and music.</li>
-      <li>To register for the Roadshow, please use this form. Please register by 15 July 2026.</li>
+          <li><span class="time">18:00–19:30:</span> Reception at Oulu City Hall with welcome words, food, drink, and music.</li>
+        </li>
+      </ul>
+      <p>To register for the Roadshow, please use <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXoucHYQqG63Q7VIl2FiiSrbUDXJ88AaWQsDDu8m0UmIa9lQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">this form</a>. 
+        Please register by 10 August. NOTE: If you are registering 
+        for the CMC2026 conference in ConfTool, please register for the Roadshow event and the reception there!</p>
         </span>
       </li>
     </ul>
