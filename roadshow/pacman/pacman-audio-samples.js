@@ -19,6 +19,13 @@ var PacManAudioEngine = (function () {
     var channels = [null, null, null, null, null];
     var ambient = null;
     var ambientName = null;
+    var ambientSource = null;
+    var ambientGain = null;
+    var ambientGeneration = 0;
+    var ambientBuffers = Object.create(null);
+    var ambientLoads = Object.create(null);
+    var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    var audioContext = null;
 
     trackNames.concat(ambientNames).forEach(function (name) {
         known[name] = true;
@@ -46,6 +53,84 @@ var PacManAudioEngine = (function () {
         return audio;
     }
 
+    // HTMLAudioElement inserts a short restart gap when looping MP3 files.
+    // The arcade siren, frightened-ghost and returning-eyes tracks are tiny
+    // loops, so that gap is audible every few tenths of a second. Decode
+    // trimmed PCM versions into Web Audio buffers for sample-continuous loops.
+    function getAudioContext() {
+        if (!AudioContextClass) return null;
+        if (!audioContext) audioContext = new AudioContextClass();
+        if (audioContext.state === "suspended") {
+            var resumed = audioContext.resume();
+            if (resumed && resumed.catch) resumed.catch(function () {});
+        }
+        return audioContext;
+    }
+
+    function loadAmbientBuffer(name) {
+        if (ambientBuffers[name]) return Promise.resolve(ambientBuffers[name]);
+        if (ambientLoads[name]) return ambientLoads[name];
+
+        var context = getAudioContext();
+        if (!context || !window.fetch) return Promise.reject(new Error("Web Audio unavailable"));
+
+        ambientLoads[name] = fetch(base + name + ".wav")
+            .then(function (response) {
+                if (!response.ok) throw new Error("Unable to load " + name);
+                return response.arrayBuffer();
+            })
+            .then(function (data) {
+                return new Promise(function (resolve, reject) {
+                    context.decodeAudioData(data, resolve, reject);
+                });
+            })
+            .then(function (buffer) {
+                ambientBuffers[name] = buffer;
+                return buffer;
+            });
+        return ambientLoads[name];
+    }
+
+    function stopAmbientAudio() {
+        ambientGeneration++;
+        stopAudio(ambient);
+        ambient = null;
+        if (ambientSource) {
+            try { ambientSource.stop(); } catch (error) {}
+            ambientSource.disconnect();
+            ambientSource = null;
+        }
+        if (ambientGain) {
+            ambientGain.disconnect();
+            ambientGain = null;
+        }
+    }
+
+    function startGaplessAmbient(name) {
+        var context = getAudioContext();
+        if (!context) {
+            ambient = start(name, true);
+            return;
+        }
+
+        var generation = ambientGeneration;
+        loadAmbientBuffer(name).then(function (buffer) {
+            if (generation !== ambientGeneration || ambientName !== name) return;
+            ambientSource = context.createBufferSource();
+            ambientGain = context.createGain();
+            ambientSource.buffer = buffer;
+            ambientSource.loop = true;
+            ambientGain.gain.value = 0.72;
+            ambientSource.connect(ambientGain);
+            ambientGain.connect(context.destination);
+            ambientSource.start(0);
+        }).catch(function () {
+            if (generation === ambientGeneration && ambientName === name) {
+                ambient = start(name, true);
+            }
+        });
+    }
+
     return {
         playTrack: function (name, channel) {
             if (channel >= 0 && channel < channels.length) {
@@ -60,14 +145,13 @@ var PacManAudioEngine = (function () {
             }
         },
         playAmbientTrack: function (name) {
-            if (ambient && ambientName === name && !ambient.paused) return;
-            stopAudio(ambient);
+            if (ambientName === name) return;
+            stopAmbientAudio();
             ambientName = name;
-            ambient = start(name, true);
+            startGaplessAmbient(name);
         },
         stopAmbientTrack: function () {
-            stopAudio(ambient);
-            ambient = null;
+            stopAmbientAudio();
             ambientName = null;
         },
         close: function () {
@@ -75,8 +159,7 @@ var PacManAudioEngine = (function () {
                 stopAudio(channels[i]);
                 channels[i] = null;
             }
-            stopAudio(ambient);
-            ambient = null;
+            stopAmbientAudio();
             ambientName = null;
         }
     };
