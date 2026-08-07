@@ -51,13 +51,16 @@
       width: min(1180px, calc(100vw - 48px));
       min-height: 760px;
       margin: 0 auto;
-      padding: 0;
-      overflow: hidden;
+      padding: 0 0 48px;
+      overflow: visible;
       background: #000;
       max-width: 1180px;
       border: 8px solid var(--blue);
       border-radius: 16px;
-      box-shadow: 0 0 0 8px #000, 0 0 0 14px var(--blue2), 0 0 40px rgba(17,52,255,.55);
+      box-shadow:
+        0 0 0 8px #000,
+        0 0 0 14px var(--blue2),
+        0 0 40px rgba(17,52,255,.55);
     }
 
     .scorebar {
@@ -277,8 +280,6 @@
 
   <main class="content container">
     <svg class="maze-svg" viewBox="0 0 1180 760" preserveAspectRatio="none" aria-hidden="true">
-      <path class="maze-outer" d="M32 32 H1148 V728 H32 Z"/>
-      <path class="maze-inner" d="M32 32 H1148 V728 H32 Z"/>
     </svg>
 
     <div class="scorebar" aria-hidden="true">
