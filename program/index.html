@@ -25,16 +25,26 @@
 
     /* The site-wide .container rule is too narrow for the two-track schedule
        on large displays. Let this page use the available content width. */
+    /* Give the programme page substantially more horizontal space than
+   ordinary text pages. */
+    .schedule-layout {
+      width: 100%;
+      max-width: 1600px;
+    }
+    
     main.content.container.schedule-page {
-      width: min(100%, 1500px);
+      width: auto;
       max-width: none;
+      padding-left: 0;
+      padding-right: 0;
       box-sizing: border-box;
     }
-
+    
     .schedule-page .day-card,
     .schedule-page .schedule-scroll {
+      width: 100%;
       max-width: 100%;
-    }
+}
 
     .schedule-page .schedule-intro {
       margin-bottom: 2rem;
@@ -70,7 +80,7 @@
     .schedule-page .schedule-scroll {
       overflow-x: auto;
     }
-
+    
     .schedule-page table {
       width: 100%;
       min-width: 860px;
@@ -109,7 +119,7 @@
 
     .schedule-page th.time-col,
     .schedule-page td.time {
-      width: 125px;
+      width: 110px;
     }
 
     .schedule-page td.time {
@@ -188,7 +198,7 @@
 </link></head>
 <body>
 <div data-include="includes/header.html"></div>
-<div class="layout">
+<div class="layout schedule-layout">
 <div data-include="includes/sidebar.html"></div>
 <main class="content container schedule-page">
 <section>
