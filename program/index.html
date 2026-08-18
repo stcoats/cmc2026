@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="en"> 
+<html lang="en">
 <head>
 <base href=".."/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="assets/favicon.png" rel="shortcut icon" type="image/png"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/>
-<link href="assets/main.css" rel="stylesheet">
+<link href="assets/main.css" rel="stylesheet"/>
 <title>Schedule — CMC-Corpora 2026</title>
 <style>
     .schedule-page {
@@ -195,8 +195,20 @@
         font-size: 9pt;
       }
     }
-  </style>
-</link></head>
+  
+
+    .schedule-page .talk-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .schedule-page .talk-title a:hover,
+    .schedule-page .talk-title a:focus-visible {
+      color: var(--link);
+      text-decoration: underline;
+    }
+</style>
+</head>
 <body>
 <div data-include="includes/header.html"></div>
 <div class="layout schedule-layout">
@@ -234,7 +246,7 @@
 <td>
 <span class="authors">Keynote: Mikko Laitinen</span><br/>
 <span class="speaker-note">Chair: Steven Coats</span><br/>
-<span class="talk-title">Ego Networks and Computer-Mediated Communication</span>
+<span class="talk-title"><a href="keynotes/">Ego Networks and Computer-Mediated Communication</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -251,44 +263,44 @@
 <td class="time">10:45–11:15</td>
 <td>
 <span class="authors">Torben Juel Jensen &amp; Philip Diderichsen</span><br/>
-<span class="talk-title">Establishing the Corpus of Danish Digitally Mediated Interaction (DanDIGI)</span>
+<span class="talk-title"><a href="abstracts/#paper-100">Establishing the Corpus of Danish Digitally Mediated Interaction (DanDIGI)</a></span>
 </td>
 <td>
 <span class="authors">Lara Baert et al.</span><br/>
-<span class="talk-title">Rethinking Emoji Functions in Later Life: How Older Adults Interpret Emoji in Context</span>
+<span class="talk-title"><a href="abstracts/#paper-113">Rethinking Emoji Functions in Later Life: How Older Adults Interpret Emoji in Context</a></span>
 </td>
 </tr>
 <tr>
 <td class="time">11:15–11:45</td>
 <td>
 <span class="authors">Andreas Witt &amp; Marc Kupietz</span><br/>
-<span class="talk-title">Quantitative Approaches to German CMC Corpora</span>
+<span class="talk-title"><a href="abstracts/#paper-131">Quantitative Approaches to German CMC Corpora</a></span>
 </td>
 <td>
 <span class="authors">Martti Mäkinen</span><br/>
-<span class="talk-title">Emojis in Swedish-Speakers’ WhatsApp Discussions: Hearts vs. Grins</span>
+<span class="talk-title"><a href="abstracts/#paper-137">Emojis in Swedish-Speakers’ WhatsApp Discussions: Hearts vs. Grins</a></span>
 </td>
 </tr>
 <tr>
 <td class="time">11:45–12:15</td>
 <td>
 <span class="authors">Léonieke Ariaans, Iris Hendrickx &amp; Ilja Croijmans</span><br/>
-<span class="talk-title">The Lexical Metaphor in Wine Speak: Semi-Automated, Manual Annotation in Expert and Non-Expert Wine Reviews</span>
+<span class="talk-title"><a href="abstracts/#paper-109">The Lexical Metaphor in Wine Speak: Semi-Automated, Manual Annotation in Expert and Non-Expert Wine Reviews</a></span>
 </td>
 <td>
 <span class="authors">Rahel Albicker</span><br/>
-<span class="talk-title">Personal Pronoun Declarations in CMC Networks: Tracing a Sociolinguistic Innovation in the Context of the Weak-Tie Hypothesis</span>
+<span class="talk-title"><a href="abstracts/#paper-123">Personal Pronoun Declarations in CMC Networks: Tracing a Sociolinguistic Innovation in the Context of the Weak-Tie Hypothesis</a></span>
 </td>
 </tr>
 <tr>
 <td class="time">12:15–12:45</td>
 <td>
 <span class="authors">Dimitra Niaouri, Meriem Hamdane, Michele Linardi &amp; Julien Longhi</span><br/>
-<span class="talk-title">Graph Classification Explainability Meets Extremist Narrative Analysis</span>
+<span class="talk-title"><a href="abstracts/#paper-134">Graph Classification Explainability Meets Extremist Narrative Analysis</a></span>
 </td>
 <td>
 <span class="authors">Lydia-Mai Ho-Dac, Céline Poudat, Ludovic Tanguy, Cécile Fabre &amp; Josette Rebeyrolle</span><br/>
-<span class="talk-title">Leave and Let Die: Announcing a Departure from an Online Discussion</span>
+<span class="talk-title"><a href="abstracts/#paper-122">Leave and Let Die: Announcing a Departure from an Online Discussion</a></span>
 </td>
 </tr>
 <tr class="break-row">
@@ -304,7 +316,7 @@
 <td class="time">13:45–14:15</td>
 <td>
 <span class="authors">Maria Berger, Yulia Clausen &amp; Hannah Seemann</span><br/>
-<span class="talk-title">Computational Modeling of Register Variation in Positive Online Language</span>
+<span class="talk-title"><a href="abstracts/#paper-105">Computational Modeling of Register Variation in Positive Online Language</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -312,7 +324,7 @@
 <td class="time">14:15–14:45</td>
 <td>
 <span class="authors">Steven Coats</span><br/>
-<span class="talk-title">Decoding Parameters as Methodological Choices: The Impact of Temperature on ASR-Derived Corpus Construction</span>
+<span class="talk-title"><a href="abstracts/#paper-133">Decoding Parameters as Methodological Choices: The Impact of Temperature on ASR-Derived Corpus Construction</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -320,7 +332,7 @@
 <td class="time">14:45–15:15</td>
 <td>
 <span class="authors">Egon W. Stemle</span><br/>
-<span class="talk-title">Sentence-Level Universal Dependencies (UD) Genres for CMC: A Social-Genre POS-Tagging Showcase</span>
+<span class="talk-title"><a href="abstracts/#paper-136">Sentence-Level Universal Dependencies (UD) Genres for CMC: A Social-Genre POS-Tagging Showcase</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -363,7 +375,7 @@
 <td>
 <span class="authors">Keynote: Sofia Rüdiger</span><br/>
 <span class="speaker-note">Chair: Maarit Siromaa</span><br/>
-<span class="talk-title">Food Discourses on YouTube: Exploring a Corpus of Excessive Consumption Videos</span>
+<span class="talk-title"><a href="keynotes/">Food Discourses on YouTube: Exploring a Corpus of Excessive Consumption Videos</a></span>
 <span class="talk-title"></span>
 </td>
 <td class="empty"></td>
@@ -381,33 +393,33 @@
 <td class="time">10:30–11:00</td>
 <td>
 <span class="authors">Hannah Seemann &amp; Tatjana Scheffler</span><br/>
-<span class="talk-title">Medium, Register, and the Individual as Sources of Linguistic Variation</span>
+<span class="talk-title"><a href="abstracts/#paper-128">Medium, Register, and the Individual as Sources of Linguistic Variation</a></span>
 </td>
 <td>
 <span class="authors">Nobutane Hanayama &amp; Motohiro Fukuoka</span><br/>
-<span class="talk-title">An Age-Cohort Approach for Analyzing X (Formerly Twitter) Data</span>
+<span class="talk-title"><a href="abstracts/#paper-103">An Age-Cohort Approach for Analyzing X (Formerly Twitter) Data</a></span>
 </td>
 </tr>
 <tr>
 <td class="time">11:00–11:30</td>
 <td>
 <span class="authors">Frederike Schram</span><br/>
-<span class="talk-title">Regional and Minority Languages in CMC: Exploring Low German on Instagram</span>
+<span class="talk-title"><a href="abstracts/#paper-129">Regional and Minority Languages in CMC: Exploring Low German on Instagram</a></span>
 </td>
 <td>
 <span class="authors">Ming Ze Tang, Phan Quynh Thu Nguyen &amp; Thi Hong Nhung Nguyen</span><br/>
-<span class="talk-title">The Flattening Effect: A Comparative Study of Sociopragmatic Erasure and Identity Loss in Translated Vietnamese-English Cyber-Discourse</span>
+<span class="talk-title"><a href="abstracts/#paper-139">The Flattening Effect: A Comparative Study of Sociopragmatic Erasure and Identity Loss in Translated Vietnamese-English Cyber-Discourse</a></span>
 </td>
 </tr>
 <tr>
 <td class="time">11:30–12:00</td>
 <td>
 <span class="authors">Lea Meriläinen &amp; Heli Paulasto</span><br/>
-<span class="talk-title">Corpus-Assisted Discourse Analysis on “Good English”: Attitudes and Ideologies on the Suomi24 Discussion Forum</span>
+<span class="talk-title"><a href="abstracts/#paper-130">Corpus-Assisted Discourse Analysis on “Good English”: Attitudes and Ideologies on the Suomi24 Discussion Forum</a></span>
 </td>
 <td>
 <span class="authors">Evelina Salo</span><br/>
-<span class="talk-title">The Self-Censorship Strategies of Crime Junkies Online: An Analysis of Algospeak Used by True Crime Content Creators on TikTok</span>
+<span class="talk-title"><a href="abstracts/#paper-140">The Self-Censorship Strategies of Crime Junkies Online: An Analysis of Algospeak Used by True Crime Content Creators on TikTok</a></span>
 </td>
 </tr>
 <tr class="break-row">
@@ -423,7 +435,7 @@
 <td class="time">13:15–13:45</td>
 <td>
 <span class="authors">Susan Herring &amp; Soyeon Lee</span><br/>
-<span class="talk-title">Beyond Agreement: Using LLM Reasoning to Evaluate Speech Acts and Politeness in Social Media</span>
+<span class="talk-title"><a href="abstracts/#paper-124">Beyond Agreement: Using LLM Reasoning to Evaluate Speech Acts and Politeness in Social Media</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -431,7 +443,7 @@
 <td class="time">13:45–14:15</td>
 <td>
 <span class="authors">Harald Lüngen &amp; Laura Herzberg</span><br/>
-<span class="talk-title">An Approach to LLM-Based Annotation of Reply Relations</span>
+<span class="talk-title"><a href="abstracts/#paper-125">An Approach to LLM-Based Annotation of Reply Relations</a></span>
 </td>
 <td class="empty"></td>
 </tr>
@@ -463,63 +475,63 @@
 <ol style="margin: 1rem 0 0; padding-left: 1.4rem;">
 <li style="margin-bottom: 1rem;">
 <span class="authors">Marc Kupietz, Nils Diewald &amp; Laura Herzberg</span><br/>
-<span class="talk-title">The Enhanced German Wikipedia Talk Pages Corpus: New Annotations for Emojis and Gender-Sensitive Language</span>
+<span class="talk-title"><a href="abstracts/#paper-101">The Enhanced German Wikipedia Talk Pages Corpus: New Annotations for Emojis and Gender-Sensitive Language</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Louis Cotgrove</span><br/>
-<span class="talk-title">Participatory CMC Corpus Building: A Museum-Based Approach to Data Donation and Public Engagement</span>
+<span class="talk-title"><a href="abstracts/#paper-102">Participatory CMC Corpus Building: A Museum-Based Approach to Data Donation and Public Engagement</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Lieke Verheijen, Ilja Croijmans &amp; Samantha Revels</span><br/>
-<span class="talk-title">Cross-Cultural Computer-Mediated Culinary Communication: Affordances and Constraints of the Current Food Emoji</span>
+<span class="talk-title"><a href="abstracts/#paper-107">Cross-Cultural Computer-Mediated Culinary Communication: Affordances and Constraints of the Current Food Emoji</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Tim Feldmüller &amp; Theresa Schweden</span><br/>
-<span class="talk-title">Komplett behindert?!?!? Token-Based Embeddings for Analysing Polysemy of the Word <em>behindert</em> (‘disabled’) in German CMC Corpora</span>
+<span class="talk-title"><a href="abstracts/#paper-104">Komplett behindert?!?!? Token-Based Embeddings for Analysing Polysemy of the Word <em>behindert</em> (‘disabled’) in German CMC Corpora</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Marc Kupietz, Nils Diewald &amp; Harald Lüngen</span><br/>
-<span class="talk-title">cmc-tagger: A Tagger for Computer-Mediated Communication Corpora</span>
+<span class="talk-title"><a href="abstracts/#paper-110">cmc-tagger: A Tagger for Computer-Mediated Communication Corpora</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Minna Palo &amp; Tiina Räisänen</span><br/>
-<span class="talk-title">Reddit Discourses on Generative AI Usage in Work</span>
+<span class="talk-title"><a href="abstracts/#paper-112">Reddit Discourses on Generative AI Usage in Work</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Harald Lüngen, Laura Herzberg, Michael Beißwenger &amp; Andreas Witt</span><br/>
-<span class="talk-title">TEI SIG CMC: Infrastructure and Resources for the Encoding of CMC Corpora</span>
+<span class="talk-title"><a href="abstracts/#paper-115">TEI SIG CMC: Infrastructure and Resources for the Encoding of CMC Corpora</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Hanna Limatius, Matt Gee &amp; Robert Lawson</span><br/>
-<span class="talk-title">Representation of Minoritized Groups in Social Media Responses to UK Government Communication during COVID-19</span>
+<span class="talk-title"><a href="abstracts/#paper-117">Representation of Minoritized Groups in Social Media Responses to UK Government Communication during COVID-19</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Erik Henriksson, Tuomas Lundberg &amp; Veronika Laippala</span><br/>
-<span class="talk-title">Fine-Tuning Embeddings for Register Classification Reveals Functional Subtypes within Social Media Registers</span>
+<span class="talk-title"><a href="abstracts/#paper-119">Fine-Tuning Embeddings for Register Classification Reveals Functional Subtypes within Social Media Registers</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Laura Aubry</span><br/>
-<span class="talk-title">Design and Annotation of a Multilayer CMC Corpus for the Analysis of Spanish Conditional Constructions</span>
+<span class="talk-title"><a href="abstracts/#paper-120">Design and Annotation of a Multilayer CMC Corpus for the Analysis of Spanish Conditional Constructions</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Maarit Siromaa &amp; Mirka Rauniomaa</span><br/>
-<span class="talk-title">Setting Experiences against Expectations in Personal Narratives on Talking about Weight in Healthcare Encounters</span>
+<span class="talk-title"><a href="abstracts/#paper-126">Setting Experiences against Expectations in Personal Narratives on Talking about Weight in Healthcare Encounters</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Céline Poudat, Christophe Parisse, Mathilde Guernut &amp; Achille Falaise</span><br/>
-<span class="talk-title">Integrating CMC into a Transversal Metadata Scheme: The Open French Corpus Case</span>
+<span class="talk-title"><a href="abstracts/#paper-132">Integrating CMC into a Transversal Metadata Scheme: The Open French Corpus Case</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Alexander König, Egon W. Stemle, Lionel Nicolas, Céline Poudat &amp; Steven Coats</span><br/>
-<span class="talk-title">A Curation Strategy for the CLARIN Resource Family for Computer-Mediated Communication</span>
+<span class="talk-title"><a href="abstracts/#paper-135">A Curation Strategy for the CLARIN Resource Family for Computer-Mediated Communication</a></span>
 </li>
 <li style="margin-bottom: 1rem;">
 <span class="authors">Penelope Nguyen</span><br/>
-<span class="talk-title">“Yet Another Dumbass 🙂”: Understanding 🙂 within the Vietnamese Online Community</span>
+<span class="talk-title"><a href="abstracts/#paper-138">“Yet another dumbass 🙂”: Understanding 🙂 within the Vietnamese Online Community</a></span>
 </li>
 <li>
 <span class="authors">Daria Dayter &amp; Svetlana Filon</span><br/>
-<span class="talk-title">Performing Moral Authority: How ‘should be ashamed’ Circulates across Contrasting Affordances of X and Bluesky</span>
+<span class="talk-title"><a href="abstracts/#paper-141">Performing Moral Authority: How ‘should be ashamed’ Circulates across Contrasting Affordances of X and Bluesky</a></span>
 </li>
 </ol>
 </div>
