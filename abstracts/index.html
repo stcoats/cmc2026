@@ -165,7 +165,15 @@ around three different topics, demonstrating that our approach not only enhances
         <h3>Decoding Parameters as Methodological Choices: The Impact of Temperature on ASR-Derived Corpus Construction</h3>
         <p class="abstract-authors">Steven Coats</p>
         <div class="abstract-text">
-          <p>Automatic speech recognition (ASR) is increasingly used for large-scale corpus construction, yet the impact of decoding parameters on resulting datasets remains underexplored. This paper compares two versions of a corpus derived from the same audio data using a fine-tuned Whisper model, differing only in decoding temperature (0.0 vs. 0.1). While temperature 0.0 produces more conservative outputs with fewer hallucinations, it systematically omits low-confidence speech segments. In contrast, temperature 0.1 captures more of the spoken material but introduces additional hallucinated content. We show that this trade-off has direct consequences for corpus completeness, token counts, and the representation of discourse features. We argue that decoding parameters should be treated as methodological decisions in corpus construction rather than purely technical settings, and we propose best practices for their use in linguistically oriented ASR pipelines.</p>
+          <p>Automatic speech recognition (ASR) is increasingly used for large-scale corpus construction, yet the impact
+of decoding parameters on resulting datasets remains underexplored. We compare two operational decoding
+configurations selected by fixed temperature settings (0.0 vs. 0.1) in a Singapore-English-adapted Whisper pipeline.
+In a paired rerun of 1,322 podcast recordings (774 hours), sampling at temperature 0.1 produced 99,011 more
+aligned words than beam search at temperature 0.0 (+1.02%; 95% paired-bootstrap interval: +0.89–1.16%).
+Hand-checked passages show that these differences include both recovered audible material and acoustically
+unsupported insertions. An additional sampling-only control at temperature 0.01 produced more output than at 0.1,
+showing that output quantity was not monotonic with temperature. We argue that decoding configuration should be
+treated as a methodological decision in corpus construction rather than a purely technical setting.</p>
         </div>
         <p class="abstract-back"><a href="program/">Back to programme</a></p>
       </article>
