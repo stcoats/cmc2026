@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="..">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/main.css"/>
+  <meta name="description" content="Proceedings of CMC-Corpora 2026, published open access by the Leibniz Institute for the German Language." />
+  <title>Proceedings — CMC-Corpora 2026</title>
+  <style>
+    .publication-title {
+      max-width: 52rem;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+    .publication-details {
+      margin: 1.25rem 0;
+      padding: 1rem 1.15rem;
+      border-left: 4px solid var(--link);
+      background: #f8fafc;
+      border-radius: 0 .6rem .6rem 0;
+    }
+    .publication-details p { margin: .2rem 0; }
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .publication-links a {
+      display: inline-block;
+      padding: .65rem .9rem;
+      border-radius: .55rem;
+      background: var(--link);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .publication-links a:hover {
+      background: var(--link-hover);
+      color: #fff;
+      text-decoration: none;
+    }
+    .citation {
+      padding: 1rem 1.15rem;
+      border: 1px solid #e2e8f0;
+      border-radius: .65rem;
+      background: #fff;
+      color: var(--muted);
+    }
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 1rem 1.15rem;
+      border: 1px solid #e2e8f0;
+      border-radius: .65rem;
+      background: #f8fafc;
+      color: var(--text);
+      font-size: .9rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="includes/header.html"></div>
+
+<div class="layout">
+  <div data-include="includes/sidebar.html"></div>
+
+  <main class="content container">
+    <section>
+      <h2>Proceedings</h2>
+      <p class="publication-title">
+        The proceedings of the 13th International Conference on CMC and Social
+        Media Corpora for the Humanities are now available open access.
+      </p>
+
+      <div class="publication-details">
+        <p><strong>Editor:</strong> Steven Coats</p>
+        <p><strong>Publisher:</strong> Leibniz-Institut für Deutsche Sprache (IDS)</p>
+        <p><strong>Year:</strong> 2026</p>
+        <p><strong>ISBN:</strong> 978-3-00-088236-4</p>
+        <p><strong>DOI:</strong> <a href="https://doi.org/10.14618/0j79-7835">10.14618/0j79-7835</a></p>
+      </div>
+
+      <div class="publication-links">
+        <a href="https://doi.org/10.14618/0j79-7835">Open the proceedings</a>
+        <a href="https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/13980">Publication record at IDS</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>How to cite</h2>
+
+      <h3>APA style</h3>
+      <p class="citation">
+        Coats, S. (Ed.). (2026). <em>Proceedings of the 13th International
+        Conference on CMC and Social Media Corpora for the Humanities,
+        CMC-Corpora 2026, 27–28 August 2026, University of Oulu, Finland</em>.
+        Leibniz-Institut für Deutsche Sprache.
+        <a href="https://doi.org/10.14618/0j79-7835">https://doi.org/10.14618/0j79-7835</a>
+      </p>
+
+      <h3>BibTeX</h3>
+      <pre><code>@proceedings{coats2026cmccorpora,
+  editor    = {Steven Coats},
+  title     = {Proceedings of the 13th International Conference on CMC and
+               Social Media Corpora for the Humanities, CMC-Corpora 2026,
+               27--28 August 2026, University of Oulu, Finland},
+  year      = {2026},
+  publisher = {Leibniz-Institut für Deutsche Sprache (IDS)},
+  isbn      = {978-3-00-088236-4},
+  doi       = {10.14618/0j79-7835},
+  url       = {https://doi.org/10.14618/0j79-7835}
+}</code></pre>
+    </section>
+  </main>
+</div>
+
+<div data-include="includes/footer.html"></div>
+
+<script>
+document.querySelectorAll('[data-include]').forEach(el => {
+  fetch(el.getAttribute('data-include'))
+    .then(resp => resp.text())
+    .then(html => el.innerHTML = html);
+});
+</script>
+
+</body>
+</html>
